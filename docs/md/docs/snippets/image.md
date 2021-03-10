@@ -1,13 +1,17 @@
-# Simple Image
+# Imagen
 
 > :P5 sketch=/docs/sketches/image.js
 
-# Inverse image
+# Imagen Inversa
 
 > :P5 sketch=/docs/sketches/inverse.js width=600, height=600
 
-> # Negative image
+> # Imagen Negativa
 
-[comment]: <> (> :P5 sketch=/docs/sketches/Negative.js width=600, height=600)
+> :P5 sketch=/docs/sketches/Negative.js width=600, height=600
+
+> # Imagen en escala de grises
+
+> :P5 sketch=/docs/sketches/Grises.js width=600, height=600
 
 > :ToCPrevNext

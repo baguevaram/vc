@@ -30,6 +30,11 @@ function setup() {
 function draw() {
     image(img, 0, 0,width,height);
     loadPixels();
-    pixels = pixels.reverse();
+    let tmp = pixels.slice();
+    for (let i = 0; i < pixels.length; i++) {
+
+        pixels[pixels.length-i] = tmp[i];
+
+    }
     updatePixels();
 }

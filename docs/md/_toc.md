@@ -24,5 +24,5 @@
 
 > :Collapse label=Members
 >
->[Brayan](/docs/members/Brayan-Guevara)
->[Andrés](/docs/members/Andres)
+> [Brayan](/docs/members/Brayan-Guevara)
+> [Andrés](/docs/members/Andres)

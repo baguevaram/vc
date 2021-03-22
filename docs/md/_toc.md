@@ -18,10 +18,6 @@
 > [Libs](/docs/snippets/lib)
 > [Sound](/docs/snippets/sound)
 
-> :Collapse label=Test
->
-> [Image](/docs/snippets/image)
-
 > :Collapse label=Members
 >
 > [Brayan](/docs/members/Brayan-Guevara)

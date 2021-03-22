@@ -1,7 +1,7 @@
 let img;
 function setup() {
     createCanvas(600, 600);
-    img = loadImage('/vc/docs/sketches/mewtwo.png');
+    img = loadImage('/vc/docs/sketches/spiderman.jpg');
 }
 
 function draw() {

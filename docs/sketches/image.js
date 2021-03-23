@@ -1,9 +1,19 @@
 let img;
+
+let W;
+let H;
+
+function preload() {
+    img = loadImage('/vc/docs/sketches/test.jpeg');
+
+}
+
 function setup() {
-    createCanvas(600, 600);
-    img = loadImage('/vc/docs/sketches/spiderman.jpg');
+    W = img.width;
+    H = img.height;
+    createCanvas(W, H);
 }
 
 function draw() {
-    image(img, 0, 0,width,height);
+    image(img, 0, 0, W, H);
 }

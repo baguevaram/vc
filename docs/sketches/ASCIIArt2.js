@@ -7,7 +7,6 @@ let xStep = 3;
 const BASE = "@MNHQ&OC?7>!;:-.";
 
 function preload() {
-    // Ensure the .ttf or .otf font stored in the assets directory
     // is loaded before setup() and draw() are called
     img = loadImage('/vc/docs/sketches/spiderman.jpg');
 }
@@ -41,7 +40,7 @@ function draw() {
                     gray += grayPixels[(600*(i+k))+(j+l)]
                 }
             }
-            gray = Math.round(gray/(7*6))
+            gray = Math.round(gray/(yStep*xStep))
             let index = Math.round(gray * (BASE.length + 1) / 255);
 
             if (index >= BASE.length) {

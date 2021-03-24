@@ -26,6 +26,6 @@
 >
 > [ASCII ART](/docs/workshops/ImagingFolder/ASCIIART)
 >
-> [ASCII ART 2 (Mejor Definicion)](/docs/workshops/ImagingFolder/ASCIIART2)
+> [ASCII ART 2 (Color)](/docs/workshops/ImagingFolder/ASCIIART2)
 >
 > [Mosaico](/docs/workshops/ImagingFolder/mosaico)

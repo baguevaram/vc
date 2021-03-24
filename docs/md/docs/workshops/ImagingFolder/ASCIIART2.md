@@ -1,4 +1,8 @@
-# ASCII ART (Mejor definicion)
+# Imagen
+
+> :P5 sketch=/docs/sketches/image.js
+
+# ASCII ART (Color)
 
 > :P5 sketch=/docs/sketches/ASCIIArt2.js
 

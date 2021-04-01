@@ -53,7 +53,6 @@ function draw() {
     avg /= allImages[i].pixels.length / 4;
     bright[i] = avg;
   }
-  console.log(bright);
   for (var k = 0; k < brightImages.length; k++) {
     var record = 256;
     for (var r = 0; r < bright.length; r++) {
@@ -65,8 +64,6 @@ function draw() {
     }
   }
   smaller.loadPixels();
-  let max = 0,
-    min = 255;
   for (let x = 0; x < W; x++) {
     for (let y = 0; y < H; y++) {
       let index = 4 * (x + y * W);
@@ -79,22 +76,10 @@ function draw() {
       //   noStroke();
       //   rect(x * scl, y * scl, scl, scl);
       let imageIndex = brightness(c);
-      // fill(c);
-      // noStroke();
-      // rect(x * scl, y * scl, scl, scl);
-      // console.log(imageIndex);
-      if (imageIndex > max) {
-        max = imageIndex;
-      }
-      if (imageIndex < min) {
-        min = imageIndex;
-      }
       if (brightImages[int(imageIndex / 10)] !== undefined)
         image(brightImages[int(imageIndex / 10)], x * scl, y * scl, scl, scl);
     }
   }
-  console.log(max);
-  console.log(min);
   smaller.updatePixels();
   //image(img, 0, 0);
   //   image(smaller, 0, 0);

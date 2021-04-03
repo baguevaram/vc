@@ -1,22 +1,18 @@
-// Luminosity
-
-let img;
+let fingers;
 let slider;
 
 let weights = [[0.2989, 0.5870, 0.1140], [0.2120, 0.7010, 0.0870], [0.2126, 0.7152, 0.0722], [0.2627, 0.6780, 0.0593]]
 
-let W;
-let H;
-
 function preload() {
-    img = loadImage('/vc/docs/sketches/test.jpeg');
-    // img = loadImage('/vc/docs/sketches/lenna.png');
+    // specify multiple formats for different browsers
+    fingers = createVideo(['/vc/docs/sketches/fingers.mov', '/vc/docs/sketches/fingers.webm']);
+    fingers.hide(); // by default video shows up in separate dom
+    // element. hide it and draw it to the canvas
+    // instead
 }
 
 function setup() {
-    W = img.width;
-    H = img.height;
-    createCanvas(W, H);
+    createCanvas(320, 240);
 
     slider = createSlider(1, 4, 40);
     slider.position(10, 10);
@@ -25,8 +21,8 @@ function setup() {
 function draw() {
 
     posSlider = slider.value();
-    
-    image(img, 0, 0, W, H);
+
+    image(fingers, 10, 10); // draw the video frame to canvas
     loadPixels();
     originalPixels = pixels.slice()
     for (let i = 0; i < pixels.length; i += 4) {
@@ -44,4 +40,8 @@ function draw() {
     text(weights[posSlider - 1][1], 7, 55);
     fill(0, 0, 255);
     text(weights[posSlider - 1][2], 7, 75);
+}
+
+function mousePressed() {
+    fingers.loop(); // set the video to loop and start playing
 }

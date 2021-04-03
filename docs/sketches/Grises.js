@@ -14,6 +14,7 @@ function setup() {
     W = img.width;
     H = img.height;
     createCanvas(W, H);
+    noLoop();
 }
 
 function draw() {

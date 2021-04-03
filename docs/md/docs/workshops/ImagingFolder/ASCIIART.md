@@ -27,6 +27,8 @@ una buena aproximación del bloque del paso 3
 
 > [Modificaciones Simples](/docs/workshops/ImagingFolder/simpleMods)
 >
+> [Videos escala de grises](/docs/workshops/ImagingFolder/videosGrises)
+>
 > [ASCII ART 2 (Color)](/docs/workshops/ImagingFolder/ASCIIART2)
 >
 > [Mosaico](/docs/workshops/ImagingFolder/mosaico)

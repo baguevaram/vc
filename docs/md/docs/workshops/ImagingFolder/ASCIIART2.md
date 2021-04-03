@@ -14,6 +14,8 @@ ese color a los caracteres.
 
 > [Modificaciones Simples](/docs/workshops/ImagingFolder/simpleMods)
 >
+> [Videos escala de grises](/docs/workshops/ImagingFolder/videosGrises)
+>
 > [ASCII ART](/docs/workshops/ImagingFolder/ASCIIART)
 >
 > [Mosaico](/docs/workshops/ImagingFolder/mosaico)

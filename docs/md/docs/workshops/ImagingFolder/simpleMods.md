@@ -18,7 +18,7 @@
 
 > :P5 sketch=/docs/sketches/Grises2.js
 
-### Lightness Method
+### Luma Method
 
 > :P5 sketch=/docs/sketches/Grises3.js
 

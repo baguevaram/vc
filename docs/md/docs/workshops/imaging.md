@@ -1,9 +1,5 @@
 # Image and video processing
 
-## Imagen Normal
-
-> :P5 sketch=/docs/sketches/image.js
-
 > [Modificaciones Simples](/docs/workshops/ImagingFolder/simpleMods)
 >
 > [ASCII ART](/docs/workshops/ImagingFolder/ASCIIART)

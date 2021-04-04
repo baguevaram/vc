@@ -9,5 +9,7 @@
 > [ASCII ART 2 (Color)](/docs/workshops/ImagingFolder/ASCIIART2)
 >
 > [Mosaico](/docs/workshops/ImagingFolder/mosaico)
+> 
+> [Mascaras de Convolucion](/docs/workshops/ImagingFolder/convolutionMatrix)
 
 > :ToCPrevNext

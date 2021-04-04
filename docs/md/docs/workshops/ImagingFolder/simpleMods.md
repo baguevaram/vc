@@ -43,3 +43,5 @@ Se hace un promedio ponderado entre los 3 componentes de cada pixel y se le asig
 > [ASCII ART 2 (Color)](/docs/workshops/ImagingFolder/ASCIIART2)
 >
 > [Mosaico](/docs/workshops/ImagingFolder/mosaico)
+>
+> [Mascaras de Convolucion](/docs/workshops/ImagingFolder/convolutionMatrix)

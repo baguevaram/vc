@@ -19,3 +19,5 @@ ese color a los caracteres.
 > [ASCII ART](/docs/workshops/ImagingFolder/ASCIIART)
 >
 > [Mosaico](/docs/workshops/ImagingFolder/mosaico)
+>
+> [Mascaras de Convolucion](/docs/workshops/ImagingFolder/convolutionMatrix)

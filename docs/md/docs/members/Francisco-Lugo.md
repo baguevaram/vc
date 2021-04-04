@@ -12,8 +12,10 @@ Soccer & Videogames
 
 ## Optical illusion
 
-### Lines like curves.
+### Lines like diagonal.
 
-> :P5 sketch=/docs/sketches/CurvedLines.js width=600, height=600
+> :P5 sketch=/docs/sketches/Gregory.js width=400, height=400
+
+## Optical illusion
 
 > :ToCPrevNext

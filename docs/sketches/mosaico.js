@@ -38,7 +38,6 @@ function setup() {
 }
 
 function draw() {
-  //TODO
   for (var i = 0; i < cantImg; i++) {
     allImages[i].loadPixels();
     let avg = 0;
@@ -83,7 +82,5 @@ function draw() {
     }
   }
   smaller.updatePixels();
-  //image(img, 0, 0);
-  //   image(smaller, 0, 0);
   noLoop();
 }

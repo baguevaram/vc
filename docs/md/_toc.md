@@ -23,3 +23,4 @@
 > [Brayan](/docs/members/Brayan-Guevara)
 > [Andrés](/docs/members/Andres)
 > [Jhonatan](/docs/members/Jhonatan-Rivera)
+> [Francisco](/docs/members/Francisco-Lugo)

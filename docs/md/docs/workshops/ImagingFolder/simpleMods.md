@@ -45,3 +45,5 @@ Se hace un promedio ponderado entre los 3 componentes de cada pixel y se le asig
 > [Mosaico](/docs/workshops/ImagingFolder/mosaico)
 >
 > [Mascaras de Convolucion](/docs/workshops/ImagingFolder/convolutionMatrix)
+>
+> [Videos con Convolucion](/docs/workshops/ImagingFolder/videoConvolution)

@@ -21,3 +21,5 @@ ese color a los caracteres.
 > [Mosaico](/docs/workshops/ImagingFolder/mosaico)
 >
 > [Mascaras de Convolucion](/docs/workshops/ImagingFolder/convolutionMatrix)
+>
+> [Videos con Convolucion](/docs/workshops/ImagingFolder/videoConvolution)

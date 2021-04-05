@@ -1,6 +1,4 @@
 let fingers;
-let W;
-let H;
 
 function preload() {
     // specify multiple formats for different browsers
@@ -11,9 +9,7 @@ function preload() {
 }
 
 function setup() {
-    W = img.width;
-    H = img.height;
-    createCanvas(W, H);
+    createCanvas(320, 240);
 }
 
 function draw() {

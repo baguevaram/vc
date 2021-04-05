@@ -25,3 +25,5 @@
 > [Videos escala de grises](/docs/workshops/ImagingFolder/videosGrises)
 >
 > [Mosaico](/docs/workshops/ImagingFolder/mosaico)
+>
+> [Videos con Convolucion](/docs/workshops/ImagingFolder/videoConvolution)

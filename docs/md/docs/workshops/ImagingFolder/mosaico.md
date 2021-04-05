@@ -107,3 +107,7 @@ function draw() {
 > [ASCII ART](/docs/workshops/ImagingFolder/ASCIIART)
 >
 > [ASCII ART 2 (Color)](/docs/workshops/ImagingFolder/ASCIIART2)
+>
+> [Mascaras de Convolucion](/docs/workshops/ImagingFolder/convolutionMatrix)
+>
+> [Videos con Convolucion](/docs/workshops/ImagingFolder/videoConvolution)

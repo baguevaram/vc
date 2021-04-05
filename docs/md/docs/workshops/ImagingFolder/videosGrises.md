@@ -27,3 +27,5 @@ hace más lento el proceso.
 > [Mosaico](/docs/workshops/ImagingFolder/mosaico)
 >
 > [Mascaras de Convolucion](/docs/workshops/ImagingFolder/convolutionMatrix)
+>
+> [Videos con Convolucion](/docs/workshops/ImagingFolder/videoConvolution)

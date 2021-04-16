@@ -12,14 +12,4 @@ ese color a los caracteres.
 
 > :P5 sketch=/docs/sketches/ASCIIArt2.js
 
-> [Modificaciones Simples](/docs/workshops/ImagingFolder/simpleMods)
->
-> [Videos escala de grises](/docs/workshops/ImagingFolder/videosGrises)
->
-> [ASCII ART](/docs/workshops/ImagingFolder/ASCIIART)
->
-> [Mosaico](/docs/workshops/ImagingFolder/mosaico)
->
-> [Mascaras de Convolucion](/docs/workshops/ImagingFolder/convolutionMatrix)
->
-> [Videos con Convolucion](/docs/workshops/ImagingFolder/videoConvolution)
+> :ToCPrevNext

@@ -18,14 +18,4 @@ hace más lento el proceso.
 
 > :P5 sketch=/docs/sketches/videoGris3.js, width=320, height=240
 
-> [Modificaciones Simples](/docs/workshops/ImagingFolder/simpleMods)
->
-> [ASCII ART](/docs/workshops/ImagingFolder/ASCIIART)
->
-> [ASCII ART 2 (Color)](/docs/workshops/ImagingFolder/ASCIIART2)
->
-> [Mosaico](/docs/workshops/ImagingFolder/mosaico)
->
-> [Mascaras de Convolucion](/docs/workshops/ImagingFolder/convolutionMatrix)
->
-> [Videos con Convolucion](/docs/workshops/ImagingFolder/videoConvolution)
+> :ToCPrevNext

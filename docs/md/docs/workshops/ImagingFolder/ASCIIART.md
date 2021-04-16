@@ -25,14 +25,4 @@ una buena aproximación del bloque del paso 3
 
 [Explicación](https://www.iteramos.com/pregunta/42887/como-hacer-arte-ascii-conversion-de-imagenes-algoritmos-de-trabajo)
 
-> [Modificaciones Simples](/docs/workshops/ImagingFolder/simpleMods)
->
-> [Videos escala de grises](/docs/workshops/ImagingFolder/videosGrises)
->
-> [ASCII ART 2 (Color)](/docs/workshops/ImagingFolder/ASCIIART2)
->
-> [Mosaico](/docs/workshops/ImagingFolder/mosaico)
->
-> [Mascaras de Convolucion](/docs/workshops/ImagingFolder/convolutionMatrix)
->
-> [Videos con Convolucion](/docs/workshops/ImagingFolder/videoConvolution)
+> :ToCPrevNext

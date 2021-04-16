@@ -36,14 +36,4 @@ Se hace un promedio ponderado entre los 3 componentes de cada pixel y se le asig
 
 [Escala de grises](https://en.wikipedia.org/wiki/HSL_and_HSV#Disadvantages)
 
-> [Videos escala de grises](/docs/workshops/ImagingFolder/videosGrises)
->
-> [ASCII ART](/docs/workshops/ImagingFolder/ASCIIART)
->
-> [ASCII ART 2 (Color)](/docs/workshops/ImagingFolder/ASCIIART2)
->
-> [Mosaico](/docs/workshops/ImagingFolder/mosaico)
->
-> [Mascaras de Convolucion](/docs/workshops/ImagingFolder/convolutionMatrix)
->
-> [Videos con Convolucion](/docs/workshops/ImagingFolder/videoConvolution)
+> :ToCPrevNext

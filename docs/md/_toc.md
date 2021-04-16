@@ -2,7 +2,16 @@
 
 > :Collapse label=Workshops
 > 
-> [Imaging & Video](/docs/workshops/imaging)
+> > :Collapse label=Imaging & Video
+> >
+> > [Modificaciones Simples](/docs/workshops/ImagingFolder/simpleMods)
+> > [Videos escala de grises](/docs/workshops/ImagingFolder/videosGrises)
+> > [ASCII ART](/docs/workshops/ImagingFolder/ASCIIART)
+> > [ASCII ART 2 (Color)](/docs/workshops/ImagingFolder/ASCIIART2)
+> > [Mosaico](/docs/workshops/ImagingFolder/mosaico)
+> > [Mascaras de Convolucion](/docs/workshops/ImagingFolder/convolutionMatrix)
+> > [Videos con Convolucion](/docs/workshops/ImagingFolder/videoConvolution)
+>
 > [Rendering](/docs/workshops/rendering)
 > [Algovis](/docs/workshops/algovis)
 > [Computer Graphics](/docs/workshops/cg)

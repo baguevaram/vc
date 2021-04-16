@@ -13,17 +13,4 @@
 ## Matriz Aumento de nitidez (Sharpen)
 > :P5 sketch=/docs/sketches/convolution3.js
 
-
->
->
-> [Modificaciones Simples](/docs/workshops/ImagingFolder/simpleMods)
->
-> [ASCII ART](/docs/workshops/ImagingFolder/ASCIIART)
->
-> [ASCII ART 2 (Color)](/docs/workshops/ImagingFolder/ASCIIART2)
->
-> [Videos escala de grises](/docs/workshops/ImagingFolder/videosGrises)
->
-> [Mosaico](/docs/workshops/ImagingFolder/mosaico)
->
-> [Videos con Convolucion](/docs/workshops/ImagingFolder/videoConvolution)
+> :ToCPrevNext

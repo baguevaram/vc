@@ -100,14 +100,4 @@ function draw() {
 
 [Explicación](https://www.youtube.com/watch?v=nnlAH1zDBDE)
 
-> [Modificaciones Simples](/docs/workshops/ImagingFolder/simpleMods)
->
-> [Videos escala de grises](/docs/workshops/ImagingFolder/videosGrises)
->
-> [ASCII ART](/docs/workshops/ImagingFolder/ASCIIART)
->
-> [ASCII ART 2 (Color)](/docs/workshops/ImagingFolder/ASCIIART2)
->
-> [Mascaras de Convolucion](/docs/workshops/ImagingFolder/convolutionMatrix)
->
-> [Videos con Convolucion](/docs/workshops/ImagingFolder/videoConvolution)
+> :ToCPrevNext

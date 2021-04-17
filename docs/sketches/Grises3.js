@@ -25,7 +25,7 @@ function setup() {
 function draw() {
 
     posSlider = slider.value();
-    
+
     image(img, 0, 0, W, H);
     loadPixels();
     originalPixels = pixels.slice()

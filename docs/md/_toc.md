@@ -4,6 +4,7 @@
 > 
 > > :Collapse label=Imaging & Video
 > >
+> > [Problem Statement and background](/docs/workshops/ImagingFolder/Introduction)
 > > [Modificaciones Simples](/docs/workshops/ImagingFolder/simpleMods)
 > > [Videos escala de grises](/docs/workshops/ImagingFolder/videosGrises)
 > > [ASCII ART](/docs/workshops/ImagingFolder/ASCIIART)
@@ -11,6 +12,7 @@
 > > [Mosaico](/docs/workshops/ImagingFolder/mosaico)
 > > [Mascaras de Convolucion](/docs/workshops/ImagingFolder/convolutionMatrix)
 > > [Videos con Convolucion](/docs/workshops/ImagingFolder/videoConvolution)
+> > [Conclusions](/docs/workshops/ImagingFolder/Conclusions)
 >
 > [Rendering](/docs/workshops/rendering)
 > [Algovis](/docs/workshops/algovis)

@@ -1,4 +1,4 @@
-# Jose Francisco Lugo 
+# Jose Francisco Lugo Nomesque
 
 ## Bio
 

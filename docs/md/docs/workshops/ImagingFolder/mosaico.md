@@ -4,20 +4,6 @@
 
 # Mosaico de Imagenes
 
-Un mosaico es un recubrimiento del plano mediante unas determinadas piezas, que se denominan teselas, de forma que no se
-superpongan ni dejen huecos.
-
-Un mosaico regular es aquel en el que las teselas son todas un mismo polıgono regular y
-estan unidas haciendo coincidir vertices y lados.
-
-1. Se crea una grilla con una determinada cantidad de pixeles por sector.
-
-2. Se cargan las imagenes que se usaran en el mosaico.
-
-3. Usando la función brightness() se calcula el promedio de brillo de las imagenes
-
-4. Se calcula el promedio de de brillo de los pixeles de la imagen original y se reemplaza por la foto cuya diferencia de brillo sea la más pequeña
-
 > :P5 sketch=/docs/sketches/mosaico.js
 
 # Código

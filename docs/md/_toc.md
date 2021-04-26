@@ -14,7 +14,11 @@
 > > [Videos con Convolucion](/docs/workshops/ImagingFolder/videoConvolution)
 > > [Conclusions](/docs/workshops/ImagingFolder/Conclusions)
 >
-> [Rendering](/docs/workshops/rendering)
+> > :Collapse label=Rendering
+> >
+> > [Simple Texture](/docs/workshops/renderingFolder/textures)
+>
+>
 > [Algovis](/docs/workshops/algovis)
 > [Computer Graphics](/docs/workshops/cg)
 > [HCI](/docs/workshops/hci)

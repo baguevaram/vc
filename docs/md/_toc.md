@@ -17,6 +17,7 @@
 > > :Collapse label=Rendering
 > >
 > > [Simple Texture](/docs/workshops/renderingFolder/textures)
+> > [Shaders](/docs/workshops/renderingFolder/shaders)
 >
 >
 > [Algovis](/docs/workshops/algovis)

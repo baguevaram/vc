@@ -18,5 +18,8 @@
 
 > :P5 sketch=/docs/sketches/rendering/lumaShader.js, width=500, height=500
 
+## Mascaras de convolución
+
+> :P5 sketch=/docs/sketches/rendering/maskShader.js, width=500, height=500
 
 > :ToCPrevNext

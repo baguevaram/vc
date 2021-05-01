@@ -1,6 +1,11 @@
 let W;
 let H;
 
+let slider;
+
+let weights = [[0.2989, 0.5870, 0.1140], [0.2120, 0.7010, 0.0870], [0.2126, 0.7152, 0.0722], [0.2627, 0.6780, 0.0593]]
+
+
 let myShader;
 
 function preload() {
@@ -16,10 +21,16 @@ function setup() {
     shader(myShader);
     myShader.setUniform("texture", img)
 
-    noLoop();
+    slider = createSlider(0, 3, 40);
+    slider.position(10, 10);
+    // noLoop();
 }
 
 function draw() {
+    let posSlider = slider.value();
+
+    myShader.setUniform("weights", weights[posSlider])
+
     beginShape();
     fill(150);
     vertex(-W / 2, -H / 2, 0, 0, 0);

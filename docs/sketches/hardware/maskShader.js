@@ -34,9 +34,8 @@ let masks = [
 let myShader;
 
 function preload() {
-    // img = loadImage('/vc/docs/sketches/rendering/texture.jpg');
-    img = loadImage('/vc/docs/sketches/rendering/test.jpeg');
-    myShader = loadShader("/vc/docs/sketches/rendering/shader.vert", "/vc/docs/sketches/rendering/mask1.frag")
+    img = loadImage('/vc/docs/sketches/hardware/test.jpeg');
+    myShader = loadShader("/vc/docs/sketches/hardware/shader.vert", "/vc/docs/sketches/hardware/mask1.frag")
 }
 
 function setup() {
@@ -51,7 +50,6 @@ function setup() {
 
     slider = createSlider(0, 3, 40);
     slider.position(10, 10);
-    // noLoop();
 }
 
 function draw() {

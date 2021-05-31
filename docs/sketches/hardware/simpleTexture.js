@@ -2,18 +2,17 @@ let W;
 let H;
 
 function preload() {
-    img = loadImage('/vc/docs/sketches/rendering/texture.jpg');
+    img = loadImage('/vc/docs/sketches/hardware/test.jpeg');
 }
 
 function setup() {
     W = 500;
     H = 500;
     createCanvas(W, H, WEBGL);
-    createEasyCam();
+    noLoop();
 }
 
 function draw() {
-    clear();
     texture(img);
     textureMode(NORMAL);
     beginShape();

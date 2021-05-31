@@ -3,7 +3,7 @@ let H;
 let slider;
 
 function preload() {
-    img = loadImage('/vc/docs/sketches/rendering/texture.jpg');
+    img = loadImage('/vc/docs/sketches/hardware/test.jpeg');
 }
 
 function setup() {

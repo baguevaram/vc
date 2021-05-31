@@ -4,20 +4,27 @@
 > 
 > > :Collapse label=Imaging & Video
 > >
-> > [Problem Statement and background](/docs/workshops/ImagingFolder/Introduction)
-> > [Modificaciones Simples](/docs/workshops/ImagingFolder/simpleMods)
-> > [Videos escala de grises](/docs/workshops/ImagingFolder/videosGrises)
-> > [ASCII ART](/docs/workshops/ImagingFolder/ASCIIART)
-> > [ASCII ART 2 (Color)](/docs/workshops/ImagingFolder/ASCIIART2)
-> > [Mosaico](/docs/workshops/ImagingFolder/mosaico)
-> > [Mascaras de Convolucion](/docs/workshops/ImagingFolder/convolutionMatrix)
-> > [Videos con Convolucion](/docs/workshops/ImagingFolder/videoConvolution)
-> > [Conclusions](/docs/workshops/ImagingFolder/Conclusions)
+> > > :Collapse label=Software
+> > > 
+> > > [Problem Statement and background](/docs/workshops/ImagingFolder/Introduction)
+> > > [Modificaciones Simples](/docs/workshops/ImagingFolder/simpleMods)
+> > > [Videos escala de grises](/docs/workshops/ImagingFolder/videosGrises)
+> > > [ASCII ART](/docs/workshops/ImagingFolder/ASCIIART)
+> > > [ASCII ART 2 (Color)](/docs/workshops/ImagingFolder/ASCIIART2)
+> > > [Mosaico](/docs/workshops/ImagingFolder/mosaico)
+> > > [Mascaras de Convolucion](/docs/workshops/ImagingFolder/convolutionMatrix)
+> > > [Videos con Convolucion](/docs/workshops/ImagingFolder/videoConvolution)
+> > > [Conclusions](/docs/workshops/ImagingFolder/Conclusions)
+> >
+> > > :Collapse label=Hardware
+> > >
+> > > [Texturas](/docs/workshops/hardwareFolder/textures)
+> > > [Shaders](/docs/workshops/hardwareFolder/shaders)
+> > > [ASCII ART](/docs/workshops/hardwareFolder/ASCIIART)
 >
 > > :Collapse label=Rendering
-> >
-> > [Simple Texture](/docs/workshops/renderingFolder/textures)
-> > [Shaders](/docs/workshops/renderingFolder/shaders)
+> > 
+> > [Z-Buffer](/docs/workshops/renderingFolder/ZBuffer)
 >
 >
 > [Algovis](/docs/workshops/algovis)

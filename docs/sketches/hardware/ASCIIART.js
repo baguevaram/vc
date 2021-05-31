@@ -4,8 +4,8 @@ let H;
 let myShader;
 
 function preload() {
-    img = loadImage('/vc/docs/sketches/rendering/texture.jpg');
-    myShader = loadShader("/vc/docs/sketches/rendering/shader.vert", "/vc/docs/sketches/rendering/texture2.frag")
+    img = loadImage('/vc/docs/sketches/hardware/test.jpeg');
+    myShader = loadShader("/vc/docs/sketches/hardware/shader.vert", "/vc/docs/sketches/hardware/ASCIIShader.frag")
 }
 
 function setup() {
@@ -15,6 +15,7 @@ function setup() {
     textureMode(NORMAL);
     shader(myShader);
     myShader.setUniform("texture", img)
+    myShader.setUniform("offset", [1 / img.width, 1 / img.height])
 
     noLoop();
 }
@@ -23,11 +24,8 @@ function draw() {
     beginShape();
     fill(150);
     vertex(-W / 2, -H / 2, 0, 0, 0);
-    fill(255,0,0);
     vertex(W / 2, -H / 2, 0, 1, 0);
-    fill(0,255,0);
     vertex(W / 2, H / 2, 0, 1, 1);
-    fill(0,0,255);
     vertex(-W / 2, H / 2, 0, 0, 1);
     endShape();
 }

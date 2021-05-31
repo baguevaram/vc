@@ -9,8 +9,8 @@ let weights = [[0.2989, 0.5870, 0.1140], [0.2120, 0.7010, 0.0870], [0.2126, 0.71
 let myShader;
 
 function preload() {
-    img = loadImage('/vc/docs/sketches/rendering/texture.jpg');
-    myShader = loadShader("/vc/docs/sketches/rendering/shader.vert", "/vc/docs/sketches/rendering/textureLUMA.frag")
+    img = loadImage('/vc/docs/sketches/hardware/test.jpeg');
+    myShader = loadShader("/vc/docs/sketches/hardware/shader.vert", "/vc/docs/sketches/hardware/textureLUMA.frag")
 }
 
 function setup() {

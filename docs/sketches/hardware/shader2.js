@@ -4,8 +4,8 @@ let H;
 let myShader;
 
 function preload() {
-    img = loadImage('/vc/docs/sketches/rendering/texture.jpg');
-    myShader = loadShader("/vc/docs/sketches/rendering/shader.vert", "/vc/docs/sketches/rendering/texture3.frag")
+    img = loadImage('/vc/docs/sketches/hardware/test.jpeg');
+    myShader = loadShader("/vc/docs/sketches/hardware/shader.vert", "/vc/docs/sketches/hardware/texture2.frag")
 }
 
 function setup() {

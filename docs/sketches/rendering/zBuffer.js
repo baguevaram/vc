@@ -5,7 +5,7 @@ let myShader;
 
 function preload() {
     // img = loadImage('/vc/docs/sketches/rendering/texture.jpg');
-    myShader = loadShader("/vc/docs/sketches/rendering/shader2.vert", "/vc/docs/sketches/rendering/zBuffer.frag")
+    myShader = loadShader("/vc/docs/sketches/rendering/shader.vert", "/vc/docs/sketches/rendering/zBuffer.frag")
 }
 
 function setup() {

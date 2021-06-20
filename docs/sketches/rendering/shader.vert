@@ -36,16 +36,11 @@ varying vec4 vVertexColor;
 // vertex texcoord
 varying vec2 vTexCoord;
 
-varying float vZPos;
-
 void main() {
     // copy / interpolate color
     vVertexColor = aVertexColor;
     // copy / interpolate texcoords
     vTexCoord = aTexCoord;
-
-    vZPos = aPosition.z;
-
     // vertex projection into clipspace
     gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aPosition, 1.0);
 }

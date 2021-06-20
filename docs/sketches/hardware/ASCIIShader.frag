@@ -1,7 +1,25 @@
 precision mediump float;
 
 uniform sampler2D texture;
-uniform vec2 offset;
+
+//uniform sampler2DArray alpha[15];
+uniform sampler2D alpha0;
+uniform sampler2D alpha1;
+uniform sampler2D alpha2;
+uniform sampler2D alpha3;
+uniform sampler2D alpha4;
+uniform sampler2D alpha5;
+uniform sampler2D alpha6;
+uniform sampler2D alpha7;
+uniform sampler2D alpha8;
+uniform sampler2D alpha9;
+uniform sampler2D alpha10;
+uniform sampler2D alpha11;
+uniform sampler2D alpha12;
+uniform sampler2D alpha13;
+uniform sampler2D alpha14;
+
+uniform float resolution;
 
 // interpolated color (same name as in vertex shader)
 varying vec4 vVertexColor;
@@ -10,46 +28,67 @@ varying vec2 vTexCoord;
 
 void main() {
 
-    vec2 tex0 = vTexCoord.st + vec2(-offset.s, -offset.t);
-    vec2 tex1 = vTexCoord.st + vec2(0.0, -offset.t);
-    vec2 tex2 = vTexCoord.st + vec2(offset.s, -offset.t);
-    vec2 tex3 = vTexCoord.st + vec2(-offset.s, 0.0);
-    vec2 tex4 = vTexCoord.st + vec2(0.0, 0.0);
-    vec2 tex5 = vTexCoord.st + vec2(offset.s, 0.0);
-    vec2 tex6 = vTexCoord.st + vec2(-offset.s, offset.t);
-    vec2 tex7 = vTexCoord.st + vec2(0.0, offset.t);
-    vec2 tex8 = vTexCoord.st + vec2(offset.s, offset.t);
+    vec2 symbolCoord = vTexCoord * resolution;
 
-    vec4 rgba[9];
+    vec2 imageCoord = floor(symbolCoord);
 
-    rgba[0] = texture2D(texture, tex0);
-    rgba[1] = texture2D(texture, tex1);
-    rgba[2] = texture2D(texture, tex2);
-    rgba[3] = texture2D(texture, tex3);
-    rgba[4] = texture2D(texture, tex4);
-    rgba[5] = texture2D(texture, tex5);
-    rgba[6] = texture2D(texture, tex6);
-    rgba[7] = texture2D(texture, tex7);
-    rgba[8] = texture2D(texture, tex8);
+    symbolCoord = symbolCoord - imageCoord;
 
-    vec4 suma;
+    imageCoord = imageCoord * vec2(1.0) / vec2(resolution);
 
-    for (int i=0; i<9; i++){
-        suma+=rgba[i];
+//    vec4 index = texture2D(texture, imageCoord);
+
+
+    // obtener nivel de gris
+    vec4 pixelColor = texture2D(texture, imageCoord);
+
+    float mean = (pixelColor.r + pixelColor.g + pixelColor.b)/3.0;
+
+
+    int index = int(floor(mean * 15.0));
+
+    if (index == 0){
+        gl_FragColor = texture2D(alpha0, symbolCoord);
+    } else if(index ==1 ){
+        gl_FragColor = texture2D(alpha1, symbolCoord);
+    } else if (index ==2 ){
+        gl_FragColor = texture2D(alpha2, symbolCoord);
+    } else if(index ==3 ){
+        gl_FragColor = texture2D(alpha3, symbolCoord);
+    } else if (index ==4 ){
+        gl_FragColor = texture2D(alpha4, symbolCoord);
+    } else if(index ==5 ){
+        gl_FragColor = texture2D(alpha5, symbolCoord);
+    } else if (index ==6 ){
+        gl_FragColor = texture2D(alpha6, symbolCoord);
+    } else if(index ==7 ){
+        gl_FragColor = texture2D(alpha7, symbolCoord);
+    } else if (index ==8 ){
+        gl_FragColor = texture2D(alpha8, symbolCoord);
+    } else if (index ==9 ){
+        gl_FragColor = texture2D(alpha9, symbolCoord);
+    } else if(index ==10 ){
+        gl_FragColor = texture2D(alpha10, symbolCoord);
+    } else if (index ==11 ){
+        gl_FragColor = texture2D(alpha11, symbolCoord);
+    } else if(index ==12 ){
+        gl_FragColor = texture2D(alpha12, symbolCoord);
+    } else if (index ==13 ){
+        gl_FragColor = texture2D(alpha13, symbolCoord);
+    }else {
+        gl_FragColor = texture2D(alpha14, symbolCoord);
     }
 
-    suma.r/=9.0;
-    suma.g/=9.0;
-    suma.b/=9.0;
+//    if(index >2){
+//        gl_FragColor = texture2D(alpha0, symbolCoord);
+//    } else{
+//        if (index > 5){
+//            gl_FragColor = texture2D(alpha1, symbolCoord);
+//
+//        } else {
+//            gl_FragColor = texture2D(alpha2, symbolCoord);
+//        }
+//    }
 
-    float prom = (suma.r+suma.g+suma.b)/3.0;
 
-
-    int index = int(prom*16.0/255.0);
-
-    suma.r=prom;
-    suma.g=prom;
-    suma.b=prom;
-
-    gl_FragColor = vec4(suma.rgb, 1.0) * vVertexColor;
 }

@@ -36,9 +36,6 @@ void main() {
 
     imageCoord = imageCoord * vec2(1.0) / vec2(resolution);
 
-    //    vec4 index = texture2D(texture, imageCoord);
-
-
     // obtener nivel de gris
     vec4 pixelColor = texture2D(texture, imageCoord);
 

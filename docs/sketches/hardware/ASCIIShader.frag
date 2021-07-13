@@ -36,7 +36,7 @@ void main() {
 
     imageCoord = imageCoord * vec2(1.0) / vec2(resolution);
 
-//    vec4 index = texture2D(texture, imageCoord);
+    //    vec4 index = texture2D(texture, imageCoord);
 
 
     // obtener nivel de gris
@@ -49,46 +49,34 @@ void main() {
 
     if (index == 0){
         gl_FragColor = texture2D(alpha0, symbolCoord);
-    } else if(index ==1 ){
+    } else if (index ==1){
         gl_FragColor = texture2D(alpha1, symbolCoord);
-    } else if (index ==2 ){
+    } else if (index ==2){
         gl_FragColor = texture2D(alpha2, symbolCoord);
-    } else if(index ==3 ){
+    } else if (index ==3){
         gl_FragColor = texture2D(alpha3, symbolCoord);
-    } else if (index ==4 ){
+    } else if (index ==4){
         gl_FragColor = texture2D(alpha4, symbolCoord);
-    } else if(index ==5 ){
+    } else if (index ==5){
         gl_FragColor = texture2D(alpha5, symbolCoord);
-    } else if (index ==6 ){
+    } else if (index ==6){
         gl_FragColor = texture2D(alpha6, symbolCoord);
-    } else if(index ==7 ){
+    } else if (index ==7){
         gl_FragColor = texture2D(alpha7, symbolCoord);
-    } else if (index ==8 ){
+    } else if (index ==8){
         gl_FragColor = texture2D(alpha8, symbolCoord);
-    } else if (index ==9 ){
+    } else if (index ==9){
         gl_FragColor = texture2D(alpha9, symbolCoord);
-    } else if(index ==10 ){
+    } else if (index ==10){
         gl_FragColor = texture2D(alpha10, symbolCoord);
-    } else if (index ==11 ){
+    } else if (index ==11){
         gl_FragColor = texture2D(alpha11, symbolCoord);
-    } else if(index ==12 ){
+    } else if (index ==12){
         gl_FragColor = texture2D(alpha12, symbolCoord);
-    } else if (index ==13 ){
+    } else if (index ==13){
         gl_FragColor = texture2D(alpha13, symbolCoord);
-    }else {
+    } else {
         gl_FragColor = texture2D(alpha14, symbolCoord);
     }
-
-//    if(index >2){
-//        gl_FragColor = texture2D(alpha0, symbolCoord);
-//    } else{
-//        if (index > 5){
-//            gl_FragColor = texture2D(alpha1, symbolCoord);
-//
-//        } else {
-//            gl_FragColor = texture2D(alpha2, symbolCoord);
-//        }
-//    }
-
 
 }

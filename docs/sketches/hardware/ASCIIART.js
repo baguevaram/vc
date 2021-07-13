@@ -1,10 +1,13 @@
 let W;
 let H;
 
+let slider;
+
 let myShader;
 
 let alpha = []
 let names = "@MNHQ&OC?7>!;-.";
+
 function preload() {
     img = loadImage('/vc/docs/sketches/hardware/test.jpeg');
 
@@ -39,27 +42,32 @@ function setup() {
     noStroke();
     shader(myShader);
     myShader.setUniform("texture", img);
-    myShader.setUniform("alpha",alpha);
-    myShader.setUniform("alpha0",alpha0);
-    myShader.setUniform("alpha1",alpha1);
-    myShader.setUniform("alpha2",alpha2);
-    myShader.setUniform("alpha3",alpha3);
-    myShader.setUniform("alpha4",alpha4);
-    myShader.setUniform("alpha5",alpha5);
-    myShader.setUniform("alpha6",alpha6);
-    myShader.setUniform("alpha7",alpha7);
-    myShader.setUniform("alpha8",alpha8);
-    myShader.setUniform("alpha9",alpha9);
-    myShader.setUniform("alpha10",alpha10);
-    myShader.setUniform("alpha11",alpha11);
-    myShader.setUniform("alpha12",alpha12);
-    myShader.setUniform("alpha13",alpha13);
-    myShader.setUniform("alpha14",alpha14);
-    myShader.setUniform("resolution",parseInt(500/4));
+    myShader.setUniform("alpha", alpha);
+    myShader.setUniform("alpha0", alpha0);
+    myShader.setUniform("alpha1", alpha1);
+    myShader.setUniform("alpha2", alpha2);
+    myShader.setUniform("alpha3", alpha3);
+    myShader.setUniform("alpha4", alpha4);
+    myShader.setUniform("alpha5", alpha5);
+    myShader.setUniform("alpha6", alpha6);
+    myShader.setUniform("alpha7", alpha7);
+    myShader.setUniform("alpha8", alpha8);
+    myShader.setUniform("alpha9", alpha9);
+    myShader.setUniform("alpha10", alpha10);
+    myShader.setUniform("alpha11", alpha11);
+    myShader.setUniform("alpha12", alpha12);
+    myShader.setUniform("alpha13", alpha13);
+    myShader.setUniform("alpha14", alpha14);
 
+    slider = createSlider(2, 16, 40);
+    slider.position(10, 10);
 }
 
 function draw() {
+
+    let posSlider = slider.value();
+    myShader.setUniform("resolution", parseInt(500 / posSlider));
+
     beginShape();
     fill(150);
     vertex(-W / 2, -H / 2, 0, 0, 0);

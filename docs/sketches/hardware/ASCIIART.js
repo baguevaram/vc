@@ -69,7 +69,6 @@ function draw() {
     myShader.setUniform("resolution", parseInt(500 / posSlider));
 
     beginShape();
-    fill(150);
     vertex(-W / 2, -H / 2, 0, 0, 0);
     vertex(W / 2, -H / 2, 0, 1, 0);
     vertex(W / 2, H / 2, 0, 1, 1);

@@ -5,8 +5,7 @@ let slider;
 
 let myShader;
 
-let alpha = []
-let names = "@MNHQ&OC?7>!;-.";
+// let alpha = []
 
 function preload() {
     img = loadImage('/vc/docs/sketches/hardware/test.jpeg');
@@ -58,6 +57,7 @@ function setup() {
     myShader.setUniform("alpha12", alpha12);
     myShader.setUniform("alpha13", alpha13);
     myShader.setUniform("alpha14", alpha14);
+    // myShader.setUniform("alpha", alpha);
 
     slider = createSlider(2, 16, 40);
     slider.position(10, 10);

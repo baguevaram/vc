@@ -9,9 +9,10 @@ varying float vZPos;
 
 void main() {
 
-//    [-20, 60] rangos de Z
+//    [-20, 100] rangos de Z
 
-    float color = ((vZPos*255.0+20.0)/80.0)*255.0;
+    //    float color = ((vZPos+20.0)/80.0)*255.0;
+    float color = vZPos;
 
     vec4 pixelColor = vVertexColor;
 

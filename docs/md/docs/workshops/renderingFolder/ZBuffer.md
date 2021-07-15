@@ -61,7 +61,7 @@ Para cada polígono:
 > :Tabs
 > > :Tab title=Sin shader
 > > 
-> > > :P5 sketch=/docs/sketches/rendering/zBuffer.js, width=500, height=500
+> > > :P5 sketch=/docs/sketches/rendering/zBufferBefore.js, width=500, height=500
 >
 > > :Tab title=Codigo
 > >
@@ -107,7 +107,7 @@ Para cada polígono:
 > :Tabs
 > > :Tab title=Con shader
 > > 
-> > > :P5 sketch=/docs/sketches/rendering/zBufferBefore.js, width=500, height=500
+> > > :P5 sketch=/docs/sketches/rendering/zBuffer.js, width=500, height=500
 >
 > > :Tab title=Codigo
 > >

@@ -1,13 +1,5 @@
 # Z-Buffer (Depth Buffer)
 
-> :P5 sketch=/docs/sketches/rendering/zBufferBefore.js, width=500, height=500
-
-> :P5 sketch=/docs/sketches/rendering/zBuffer.js, width=500, height=500
-
-> :P5 sketch=/docs/sketches/rendering/zBuffer2Before.js, width=500, height=500
-
-> :P5 sketch=/docs/sketches/rendering/zBuffer2.js, width=500, height=500
-
 ## Introducción
 
 Con el desarrollo de la tecnología en computación, se ha aumentado el potencial para la creación de entornos visuales cada vez más realistas, sin embargo, traer este realismo al usuario, supone también varios retos, que en términos generales tienen que ver con el modelamiento de la física del mundo real, dentro de una máquina de capacidad limitada. Partiendo de estas limitaciones lo que se busca es, aumentar el nivel de realidad visual, pero a su vez disminuir el tiempo que supone procesarla. Es claro que estas dos cosas están íntimamente relacionadas, por lo que se debe balancear entre ambas.
@@ -41,7 +33,7 @@ El algoritmo del Z-Buffer usa dos buffers, el de profundidad (Depth Buffer) y el
 
 ### Pseudocodigo
 
-```javascript
+```markdown
 //Inicializamos los valores del Depth Buffer con la profundidad máxima
 d(i, j) = MAX_DEPTH;
 //Inicializamos el valor de color en el Frame Buffer con el color del fondo o background
@@ -62,6 +54,362 @@ Para cada polígono:
 - Puede llegar a usar mucha memoria
 - Puede sufrir artefactos debido a los errores de precisión (z-fighting)
 
+## Ejemplos
+
+### Objetos con diferentes coordenadas Z
+
+> :Tabs
+> > :Tab title=Sin shader
+> > 
+> > > :P5 sketch=/docs/sketches/rendering/zBuffer.js, width=500, height=500
+>
+> > :Tab title=Codigo
+> >
+> > ```javascript
+> > let W;
+> > let H;
+> >
+> > // let myShader;
+> >
+> > let x ;
+> >
+> > function preload() {
+> >     // myShader = loadShader("/vc/docs/sketches/rendering/shader.vert", "/vc/docs/sketches/rendering/zBuffer.frag")
+> > }
+> >
+> > function setup() {
+> >     W = 500;
+> >     H = 500;
+> >     createCanvas(W, H, WEBGL);
+> >     // shader(myShader);
+> > }
+> >
+> > function draw() {
+> >     fill(255, 0, 0)
+> >     translate(0, 0, 20);
+> >     ellipse(0, 0, 20, 30)
+> >     fill(0, 255, 0)
+> >     translate(30, 10,-20);
+> >     ellipse(0,0,120,80)
+> >     fill(0, 0, 255)
+> >     translate(100, 0, -10);
+> >     box(30)
+> >     fill(0, 255, 255)
+> >     translate(-180, 0, 300);
+> >     box(30)
+> >     fill(255, 0, 255)
+> >     translate(-300,-100, -3500);
+> >     box(300)
+> > }
+> > ```
+>
+
+> :Tabs
+> > :Tab title=Con shader
+> > 
+> > > :P5 sketch=/docs/sketches/rendering/zBufferBefore.js, width=500, height=500
+>
+> > :Tab title=Codigo
+> >
+> > ```javascript
+> > let W;
+> > let H;
+> >
+> > let myShader;
+> >
+> > let x ;
+> >
+> > function preload() {
+> >     myShader = loadShader("/vc/docs/sketches/rendering/shader.vert", "/vc/docs/sketches/rendering/zBuffer.frag")
+> > }
+> >
+> > function setup() {
+> >     W = 500;
+> >     H = 500;
+> >     createCanvas(W, H, WEBGL);
+> >     shader(myShader);
+> > }
+> >
+> > function draw() {
+> >     fill(255, 0, 0)
+> >     translate(0, 0, 20);
+> >     ellipse(0, 0, 20, 30)
+> >     fill(0, 255, 0)
+> >     translate(30, 10,-20);
+> >     ellipse(0,0,120,80)
+> >     fill(0, 0, 255)
+> >     translate(100, 0, -10);
+> >     box(30)
+> >     fill(0, 255, 255)
+> >     translate(-180, 0, 300);
+> >     box(30)
+> >     fill(255, 0, 255)
+> >     translate(-300,-100, -3500);
+> >     box(300)
+> > }
+> > ```
+>
+> > :Tab title=Vertex Shader
+> >
+> > ```glsl
+> > // Precision seems mandatory in webgl
+> > precision highp float;
+> > 
+> > // 1. Attributes and uniforms sent by p5.js
+> > 
+> > // Vertex attibutes and some uniforms are sent by
+> > // p5.js following these naming conventions:
+> > // https://github.com/processing/p5.js/blob/main/contributor_docs/webgl_mode_architecture.md
+> > 
+> > // 1.1. Attributes
+> > // Geometry position attribute
+> > attribute vec3 aPosition;
+> > 
+> > // Geometry texture coordinate
+> > attribute vec2 aTexCoord;
+> > 
+> > // Geometry color attribute
+> > attribute vec4 aVertexColor;
+> > 
+> > // 1.2. Matrix uniforms
+> > 
+> > // The vertex shader should project the vertex position into clip space:
+> > // vertex_clipspace = vertex * projection * view * model (see the gl_Position below)
+> > // Details here: http://visualcomputing.github.io/Transformations
+> > 
+> > // Either a perspective or an orthographic projection
+> > uniform mat4 uProjectionMatrix;
+> > 
+> > // modelview = view * model
+> > uniform mat4 uModelViewMatrix;
+> > 
+> > 
+> > uniform mat4 uModelViewMatrixInverseTranspose;
+> > 
+> > // B. varying variables are defined by the shader programmer:
+> > // vertex color
+> > varying vec4 vVertexColor;
+> > 
+> > // vertex texcoord
+> > varying vec2 vTexCoord;
+> > 
+> > varying float vZPos;
+> > 
+> > 
+> > 
+> > void main() {
+> > 
+> >     // copy / interpolate color
+> >     vVertexColor = aVertexColor;
+> >     // copy / interpolate texcoords
+> >     vTexCoord = aTexCoord;
+> >     // vertex projection into clipspace
+> >     gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aPosition, 1.0);
+> > 
+> > //    vZPos = aPosition.z;
+> >     vZPos =( (gl_Position.z/gl_Position.w)-0.5);
+> > 
+> > }
+> > ```
+>
+> > :Tab title=Fragment Shader
+> >
+> > ```glsl
+> > // precision mediump float;
+> >
+> > // interpolated color (same name as in vertex shader)
+> > varying vec4 vVertexColor;
+> > // interpolated texcoord (same name as in vertex shader)
+> > varying vec2 vTexCoord;
+> >
+> > varying float vZPos;
+> >
+> > void main() {
+> >
+> >     float color = vZPos;
+> >
+> >     vec4 pixelColor = vVertexColor;
+> >
+> >     pixelColor.r = color;
+> >     pixelColor.g = color;
+> >     pixelColor.b = color;
+> >
+> >     gl_FragColor = pixelColor;
+> > }
+> > ```
+>
+
+
+### Objetos con misma coordenada Z
+
+> :Tabs
+> > :Tab title=Sin shader
+> > 
+> > > :P5 sketch=/docs/sketches/rendering/zBuffer2Before.js, width=500, height=500
+>
+> > :Tab title=Codigo
+> >
+> > ```javascript
+> > let W;
+> > let H;
+> >
+> > // let myShader;
+> >
+> > let x ;
+> >
+> > function preload() {
+> >     // myShader = loadShader("/vc/docs/sketches/rendering/shader.vert", "/vc/docs/sketches/rendering/zBuffer.frag")
+> > }
+> >
+> > function setup() {
+> >     W = 500;
+> >     H = 500;
+> >     createCanvas(W, H, WEBGL);
+> >     // shader(myShader);
+> > }
+> >
+> > function draw() {
+> >     fill(255, 0, 0)
+> >     translate(-150, 150, 0);
+> >     box(100)
+> >     fill(0, 0, 255)
+> >     translate(150, -150, 0);
+> >     box(100)
+> >     fill(0, 255, 0)
+> >     translate(150, -150, 0);
+> >     box(100)
+> > }
+> > ```
+>
+
+> :Tabs
+> > :Tab title=Con shader
+> > 
+> > > :P5 sketch=/docs/sketches/rendering/zBuffer2.js, width=500, height=500
+>
+> > :Tab title=Codigo
+> >
+> > ```javascript
+> > let W;
+> > let H;
+> >
+> > let myShader;
+> >
+> > let x ;
+> >
+> > function preload() {
+> >     myShader = loadShader("/vc/docs/sketches/rendering/shader2.vert", "/vc/docs/sketches/rendering/zBuffer.frag")
+> > }
+> >
+> > function setup() {
+> >     W = 500;
+> >     H = 500;
+> >     createCanvas(W, H, WEBGL);
+> >     shader(myShader);
+> > }
+> >
+> > function draw() {
+> >     fill(255, 0, 0)
+> >     translate(-150, 150, 0);
+> >     box(100)
+> >     fill(0, 0, 255)
+> >     translate(150, -150, 0);
+> >     box(100)
+> >     fill(0, 255, 0)
+> >     translate(150, -150, 0);
+> >     box(100)
+> >
+> > }
+> > ```
+>
+> > :Tab title=Vertex Shader
+> >
+> > ```glsl
+> > // Precision seems mandatory in webgl
+> > precision highp float;
+> > 
+> > // 1. Attributes and uniforms sent by p5.js
+> > 
+> > // Vertex attibutes and some uniforms are sent by
+> > // p5.js following these naming conventions:
+> > // https://github.com/processing/p5.js/blob/main/contributor_docs/webgl_mode_architecture.md
+> > 
+> > // 1.1. Attributes
+> > // Geometry position attribute
+> > attribute vec3 aPosition;
+> > 
+> > // Geometry texture coordinate
+> > attribute vec2 aTexCoord;
+> > 
+> > // Geometry color attribute
+> > attribute vec4 aVertexColor;
+> > 
+> > // 1.2. Matrix uniforms
+> > 
+> > // The vertex shader should project the vertex position into clip space:
+> > // vertex_clipspace = vertex * projection * view * model (see the gl_Position below)
+> > // Details here: http://visualcomputing.github.io/Transformations
+> > 
+> > // Either a perspective or an orthographic projection
+> > uniform mat4 uProjectionMatrix;
+> > 
+> > // modelview = view * model
+> > uniform mat4 uModelViewMatrix;
+> > 
+> > 
+> > uniform mat4 uModelViewMatrixInverseTranspose;
+> > 
+> > // B. varying variables are defined by the shader programmer:
+> > // vertex color
+> > varying vec4 vVertexColor;
+> > 
+> > // vertex texcoord
+> > varying vec2 vTexCoord;
+> > 
+> > varying float vZPos;
+> > 
+> > 
+> > 
+> > void main() {
+> > 
+> >     // copy / interpolate color
+> >     vVertexColor = aVertexColor;
+> >     // copy / interpolate texcoords
+> >     vTexCoord = aTexCoord;
+> >     // vertex projection into clipspace
+> >     gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aPosition, 1.0);
+> > 
+> >     vZPos = (aPosition.z+0.5)*0.8;
+> > }
+> > ```
+>
+> > :Tab title=Fragment Shader
+> >
+> > ```glsl
+> > // precision mediump float;
+> >
+> > // interpolated color (same name as in vertex shader)
+> > varying vec4 vVertexColor;
+> > // interpolated texcoord (same name as in vertex shader)
+> > varying vec2 vTexCoord;
+> >
+> > varying float vZPos;
+> >
+> > void main() {
+> >
+> >     float color = vZPos;
+> >
+> >     vec4 pixelColor = vVertexColor;
+> >
+> >     pixelColor.r = color;
+> >     pixelColor.g = color;
+> >     pixelColor.b = color;
+> >
+> >     gl_FragColor = pixelColor;
+> > }
+> > ```
+>
+
 ## Referencias
 
 - https://en.wikipedia.org/wiki/Visibility_(geometry)
@@ -70,8 +418,6 @@ Para cada polígono:
 - https://www.geeksforgeeks.org/z-buffer-depth-buffer-method/
 - https://www.youtube.com/watch?v=GxpPpG5pFpE
 - https://www.pearson.com/us/higher-education/program/ANGEL-Pearson-e-Text-Interactive-Computer-Graphics-Access-Card-8th-Edition/PGM2160099.html
-https://www.scratchapixel.com/lessons/3d-basic-rendering/rasterization-practical-implementation/visibility-problem-depth-buffer-depth-interpolation
-https://en.wikipedia.org/wiki/Z-buffering#W-buffer
-<!---
-> :P5 sketch=/docs/sketches/rendering/zBuffer.js, width=500, height=500
--->
+- https://www.scratchapixel.com/lessons/3d-basic-rendering/rasterization-practical-implementation/visibility-problem-depth-buffer-depth-interpolation
+- https://en.wikipedia.org/wiki/Z-buffering#W-buffer
+- http://www.songho.ca/opengl/gl_transform.html

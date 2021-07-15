@@ -42,7 +42,9 @@ void main() {
     float mean = (pixelColor.r + pixelColor.g + pixelColor.b)/3.0;
 
 
-    int index = int(floor(mean * 15.0));
+    int index = int(floor(mean * 15.0-0.001));
+
+//    gl_FragColor = texture2D(alpha[index], symbolCoord);
 
     if (index == 0){
         gl_FragColor = texture2D(alpha0, symbolCoord);

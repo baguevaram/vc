@@ -17,7 +17,8 @@ En el mundo real, el ser humano no puede ver a través de la mayoría los objeto
 Cuando se quiere mostrar una escena 3D con varios objetos lo hacemos por medio de una pantalla en 2D, por lo que es importante identificar las partes de la escena que serán visibles en la pantalla.
 Para abordar el problema de visibilidad en el contexto de la computación visual, existen dos enfoques:
 
-1. En el espacio del objeto: este método se implementa en el sistema de coordenadas físicas y compara objetos o partes del objeto para determinar la superficie visible.
+1. En el espacio del objeto: este método se implementa en el sistema de coordenadas físicas y compara objetos o partes del objeto para determinar la superficie visible. Este enfoque suele funcionar mejor para escenas con contengan relativamente pocos objetos (poligonos).
+
 2. En el espacio de la imagen: Este método se implementa en el sistema de coordenadas de la pantalla y la visibilidad se decide punto por punto.
 
 ## El Z-Buffer como una posible solución
@@ -60,7 +61,9 @@ Para cada polígono:
 - https://www.tutorialspoint.com/computer_graphics/visible_surface_detection.htm
 - https://www.geeksforgeeks.org/z-buffer-depth-buffer-method/
 - https://www.youtube.com/watch?v=GxpPpG5pFpE
-
+- https://www.pearson.com/us/higher-education/program/ANGEL-Pearson-e-Text-Interactive-Computer-Graphics-Access-Card-8th-Edition/PGM2160099.html
+https://www.scratchapixel.com/lessons/3d-basic-rendering/rasterization-practical-implementation/visibility-problem-depth-buffer-depth-interpolation
+https://en.wikipedia.org/wiki/Z-buffering#W-buffer
 <!---
 > :P5 sketch=/docs/sketches/rendering/zBuffer.js, width=500, height=500
 -->

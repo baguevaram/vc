@@ -52,7 +52,5 @@ void main() {
     // vertex projection into clipspace
     gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aPosition, 1.0);
 
-//    vZPos = aPosition.z;
-    vZPos =( (gl_Position.z/gl_Position.w)-0.5);
-
+    vZPos = (aPosition.z+0.5)*0.8;
 }

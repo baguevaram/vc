@@ -1,5 +1,13 @@
 # Z-Buffer (Depth Buffer)
 
+> :P5 sketch=/docs/sketches/rendering/zBufferBefore.js, width=500, height=500
+
+> :P5 sketch=/docs/sketches/rendering/zBuffer.js, width=500, height=500
+
+> :P5 sketch=/docs/sketches/rendering/zBuffer2Before.js, width=500, height=500
+
+> :P5 sketch=/docs/sketches/rendering/zBuffer2.js, width=500, height=500
+
 ## Introducción
 
 Con el desarrollo de la tecnología en computación, se ha aumentado el potencial para la creación de entornos visuales cada vez más realistas, sin embargo, traer este realismo al usuario, supone también varios retos, que en términos generales tienen que ver con el modelamiento de la física del mundo real, dentro de una máquina de capacidad limitada. Partiendo de estas limitaciones lo que se busca es, aumentar el nivel de realidad visual, pero a su vez disminuir el tiempo que supone procesarla. Es claro que estas dos cosas están íntimamente relacionadas, por lo que se debe balancear entre ambas.
@@ -60,7 +68,3 @@ Para cada polígono:
 - https://www.tutorialspoint.com/computer_graphics/visible_surface_detection.htm
 - https://www.geeksforgeeks.org/z-buffer-depth-buffer-method/
 - https://www.youtube.com/watch?v=GxpPpG5pFpE
-
-<!---
-> :P5 sketch=/docs/sketches/rendering/zBuffer.js, width=500, height=500
--->

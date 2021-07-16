@@ -21,6 +21,7 @@
 > > > [Texturas](/docs/workshops/hardwareFolder/textures)
 > > > [Shaders](/docs/workshops/hardwareFolder/shaders)
 > > > [ASCII ART](/docs/workshops/hardwareFolder/ASCIIART)
+> > > [Videos](/docs/workshops/hardwareFolder/videos)
 >
 > > :Collapse label=Rendering
 > > 

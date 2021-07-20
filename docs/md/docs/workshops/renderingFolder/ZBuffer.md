@@ -92,32 +92,35 @@ Para cada polígono:
 > > let x;
 > >
 > > function preload() {
-> >   // myShader = loadShader("/vc/docs/sketches/rendering/shader.vert", "/vc/docs/sketches/rendering/zBuffer.frag")
+> >     // myShader = loadShader("/vc/docs/sketches/rendering/shader.vert", "/vc/docs/sketches/rendering/zBuffer.frag")
 > > }
 > >
 > > function setup() {
-> >   W = 500;
-> >   H = 500;
-> >   createCanvas(W, H, WEBGL);
-> >   // shader(myShader);
+> >     W = 500;
+> >     H = 500;
+> >     createCanvas(W, H, WEBGL);
+> >     // shader(myShader);
 > > }
 > >
 > > function draw() {
-> >   fill(255, 0, 0);
-> >   translate(0, 0, 20);
-> >   ellipse(0, 0, 20, 30);
-> >   fill(0, 255, 0);
-> >   translate(30, 10, -20);
-> >   ellipse(0, 0, 120, 80);
-> >   fill(0, 0, 255);
-> >   translate(100, 0, -10);
-> >   box(30);
-> >   fill(0, 255, 255);
-> >   translate(-180, 0, 300);
-> >   box(30);
-> >   fill(255, 0, 255);
-> >   translate(-300, -100, -3500);
-> >   box(300);
+> >     strokeWeight(1)
+> >     fill(255, 0, 0, 0)
+> >     translate(0, 0, 20);
+> >     ellipse(0, 0, 20, 30)
+> >     fill(0, 255, 0, 0)
+> >     translate(30, 10, -20);
+> >     ellipse(0, 0, 120, 80)
+> >     fill(0, 0, 255, 0)
+> >     translate(70, 7, -10);
+> >     box(30)
+> >     fill(0, 255, 255, 0)
+> >     strokeWeight(0.3)
+> >     translate(-120, 0, 300);
+> >     box(30)
+> >     strokeWeight(5)
+> >     fill(255, 0, 255, 0)
+> >     translate(-300, -100, -3500);
+> >     box(300)
 > > }
 > > ```
 
@@ -138,35 +141,35 @@ Para cada polígono:
 > > let x;
 > >
 > > function preload() {
-> >   myShader = loadShader(
-> >     "/vc/docs/sketches/rendering/shader.vert",
-> >     "/vc/docs/sketches/rendering/zBuffer.frag"
-> >   );
+> >     myShader = loadShader("/vc/docs/sketches/rendering/shader.vert", "/vc/docs/sketches/rendering/zBuffer.frag")
 > > }
 > >
 > > function setup() {
-> >   W = 500;
-> >   H = 500;
-> >   createCanvas(W, H, WEBGL);
-> >   shader(myShader);
+> >     W = 500;
+> >     H = 500;
+> >     createCanvas(W, H, WEBGL);
+> >     shader(myShader);
 > > }
 > >
 > > function draw() {
-> >   fill(255, 0, 0);
-> >   translate(0, 0, 20);
-> >   ellipse(0, 0, 20, 30);
-> >   fill(0, 255, 0);
-> >   translate(30, 10, -20);
-> >   ellipse(0, 0, 120, 80);
-> >   fill(0, 0, 255);
-> >   translate(100, 0, -10);
-> >   box(30);
-> >   fill(0, 255, 255);
-> >   translate(-180, 0, 300);
-> >   box(30);
-> >   fill(255, 0, 255);
-> >   translate(-300, -100, -3500);
-> >   box(300);
+> >     strokeWeight(1)
+> >     fill(255, 0, 0, 0)
+> >     translate(0, 0, 20);
+> >     ellipse(0, 0, 20, 30)
+> >     fill(0, 255, 0, 0)
+> >     translate(30, 10, -20);
+> >     ellipse(0, 0, 120, 80)
+> >     fill(0, 0, 255, 0)
+> >     translate(70, 7, -10);
+> >     box(30)
+> >     fill(0, 255, 255, 0)
+> >     strokeWeight(0.3)
+> >     translate(-120, 0, 300);
+> >     box(30)
+> >     strokeWeight(5)
+> >     fill(255, 0, 255, 0)
+> >     translate(-300, -100, -3500);
+> >     box(300)
 > > }
 > > ```
 >
@@ -431,7 +434,95 @@ Para cada polígono:
 > > }
 > > ```
 
-### Interactivo
+### Interactivo con shader
+
+> :Tabs
+>
+> > :Tab title=sketch
+> >
+> > > :P5 sketch=/docs/sketches/rendering/zBuffer4.js, lib1="https://cdn.jsdelivr.net/gh/freshfork/p5.EasyCam@1.2.1/p5.easycam.js", width=500, height=500
+>
+> > :Tab title=Código
+> >
+> > ```javascript
+> > let W;
+> > let H;
+> >
+> > var near, far;
+> >
+> > let myShader;
+> >
+> > function preload() {
+> >   myShader = loadShader("/vc/docs/sketches/rendering/shaderOriginal.vert", "/vc/docs/sketches/rendering/depthmap.frag");
+> > }
+> >
+> > function setup() {
+> >   W = 500;
+> >   H = 500;
+> >   createCanvas(W, H, WEBGL);
+> >   createEasyCam();
+> >
+> >   shader(myShader);
+> >   near = 1;
+> >   far = 800;
+> >   myShader.setUniform('near', near);
+> >   myShader.setUniform('far', far);
+> > }
+> >
+> > function draw() {
+> >   // projection
+> >   perspective(60 * PI/180, width/height, near, far);
+> >
+> >   // clear BG
+> >   background(255);
+> >   noStroke();
+> >
+> >   fill(255, 0, 0)
+> >   translate(-150, 150, 0);
+> >   box(100)
+> >   fill(0, 0, 255)
+> >   translate(150, -150, 0);
+> >   box(100)
+> >   fill(0, 255, 0)
+> >   translate(150, -150, 0);
+> >   box(100)
+> > 
+> > }
+> > 
+> > ```
+>
+> > :Tab title=Fragment Shader
+> >
+> > ```glsl
+> > precision mediump float;
+> > 
+> > // The fragment eye depth is obtained by solving z_e in terms z_n from here:
+> > // http://visualcomputing.github.io/Transformations/#/6/14 and:
+> > // http://visualcomputing.github.io/Transformations/#/6/15
+> > // yielding to: z_e = (2 * near * far) / (z_n * (far - near) - far - near) (eq1)
+> > 
+> > uniform float near;
+> > uniform float far;
+> > 
+> > // remapping of a value among 2 ranges: http://visualcomputing.github.io/Transformations/#/7/1
+> > // same as: https://processing.org/reference/map_.html
+> > float map(float value, float start1, float stop1, float start2, float stop2) {
+> >     return start2 + (value - start1) * (stop2 - start2) / (stop1 - start1);
+> > }
+> > 
+> > void main() {
+> >     // z_n is obtained by remapping gl_FragCoord.z from [0..1] to [-1..1]
+> >     float z_n = map(gl_FragCoord.z, 0.0, 1.0, -1.0, 1.0);
+> >     // eq 1
+> >     float z_e = (2.0 * near * far) / (z_n * (far - near) - far - near);
+> >     // the normalized eye depth is obtained by remapping z_e from [-near..-far] to [0..1]
+> >     float depth = map(z_e, -near, -far, 1.0, 0.0);
+> >     // render the depth as a grey scale color
+> >     gl_FragColor = vec4(vec3(depth), 1.0);
+> > }
+> > 
+> > ```
+### Interactivo visual
 
 
 > :Tabs

@@ -1,56 +1,26 @@
-> > // Precision seems mandatory in webgl
-> > precision highp float;
+> > precision mediump float;
 > >
-> > // 1. Attributes and uniforms sent by p5.js
+> > // The fragment eye depth is obtained by solving z_e in terms z_n from here:
+> > // http://visualcomputing.github.io/Transformations/#/6/14 and:
+> > // http://visualcomputing.github.io/Transformations/#/6/15
+> > // yielding to: z_e = (2 * near * far) / (z_n * (far - near) - far - near) (eq1)
 > >
-> > // Vertex attibutes and some uniforms are sent by
-> > // p5.js following these naming conventions:
-> > // https://github.com/processing/p5.js/blob/main/contributor_docs/webgl_mode_architecture.md
+> > uniform float near;
+> > uniform float far;
 > >
-> > // 1.1. Attributes
-> > // Geometry position attribute
-> > attribute vec3 aPosition;
-> >
-> > // Geometry texture coordinate
-> > attribute vec2 aTexCoord;
-> >
-> > // Geometry color attribute
-> > attribute vec4 aVertexColor;
-> >
-> > // 1.2. Matrix uniforms
-> >
-> > // The vertex shader should project the vertex position into clip space:
-> > // vertex_clipspace = vertex * projection * view * model (see the gl_Position below)
-> > // Details here: http://visualcomputing.github.io/Transformations
-> >
-> > // Either a perspective or an orthographic projection
-> > uniform mat4 uProjectionMatrix;
-> >
-> > // modelview = view * model
-> > uniform mat4 uModelViewMatrix;
-> >
-> >
-> > uniform mat4 uModelViewMatrixInverseTranspose;
-> >
-> > // B. varying variables are defined by the shader programmer:
-> > // vertex color
-> > varying vec4 vVertexColor;
-> >
-> > // vertex texcoord
-> > varying vec2 vTexCoord;
-> >
-> > varying float vZPos;
-> >
-> >
+> > // remapping of a value among 2 ranges: http://visualcomputing.github.io/Transformations/#/7/1
+> > // same as: https://processing.org/reference/map_.html
+> > float map(float value, float start1, float stop1, float start2, float stop2) {
+> >     return start2 + (value - start1) * (stop2 - start2) / (stop1 - start1);
+> > }
 > >
 > > void main() {
-> >
-> >     // copy / interpolate color
-> >     vVertexColor = aVertexColor;
-> >     // copy / interpolate texcoords
-> >     vTexCoord = aTexCoord;
-> >     // vertex projection into clipspace
-> >     gl_Position = uProjectionMatrix * uModelViewMatrix * vec4(aPosition, 1.0);
-> >
-> >     vZPos = (aPosition.z+0.5)*0.8;
+> >     // z_n is obtained by remapping gl_FragCoord.z from [0..1] to [-1..1]
+> >     float z_n = map(gl_FragCoord.z, 0.0, 1.0, -1.0, 1.0);
+> >     // eq 1
+> >     float z_e = (2.0 * near * far) / (z_n * (far - near) - far - near);
+> >     // the normalized eye depth is obtained by remapping z_e from [-near..-far] to [0..1]
+> >     float depth = map(z_e, -near, -far, 1.0, 0.0);
+> >     // render the depth as a grey scale color
+> >     gl_FragColor = vec4(vec3(depth), 1.0);
 > > }

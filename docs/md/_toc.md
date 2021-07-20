@@ -26,6 +26,7 @@
 > > :Collapse label=Rendering
 > > 
 > > [Z-Buffer](/docs/workshops/renderingFolder/ZBuffer)
+> > [Rasterization](/docs/workshops/renderingFolder/Rasterization)
 >
 >
 > [Algovis](/docs/workshops/algovis)

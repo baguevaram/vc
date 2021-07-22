@@ -43,7 +43,6 @@ function setup() {
 function draw() {
     let posSlider = slider.value();
 
-
     myShader.setUniform("mask", masks[posSlider])
 
     beginShape();

@@ -5,10 +5,13 @@ let slider;
 
 let myShader;
 
+let fingers;
+
 // let alpha = []
 
 function preload() {
-    img = loadImage('/vc/docs/sketches/hardware/test.jpeg');
+    fingers = createVideo(['/vc/docs/sketches/fingers.mov', '/vc/docs/sketches/fingers.webm']);
+    fingers.hide(); // by default video shows up in separate dom
 
     // for (let i = 0; i < 15; i++) {
     //     alpha[i] = loadImage('/vc/docs/sketches/hardware/ASCIIImages/'+ String(i) +'.png');
@@ -40,7 +43,7 @@ function setup() {
     textureMode(NORMAL);
     noStroke();
     shader(myShader);
-    myShader.setUniform("texture", img);
+    myShader.setUniform("texture", fingers);
     // myShader.setUniform("alpha", alpha);
     myShader.setUniform("alpha0", alpha0);
     myShader.setUniform("alpha1", alpha1);
@@ -61,6 +64,8 @@ function setup() {
 
     slider = createSlider(2, 16, 40);
     slider.position(10, 10);
+
+    fingers.loop();
 }
 
 function draw() {

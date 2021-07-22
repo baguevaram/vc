@@ -8,3 +8,6 @@
 
 > :P5 sketch=/docs/sketches/hardware/maskShaderVideo.js, width=500, height=500
 
+## ASCII ART
+
+> :P5 sketch=/docs/sketches/hardware/ASCIIARTVideo.js, width=500, height=500

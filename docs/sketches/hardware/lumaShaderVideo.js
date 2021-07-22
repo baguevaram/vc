@@ -13,7 +13,7 @@ function preload() {
     fingers = createVideo(['/vc/docs/sketches/fingers.mov', '/vc/docs/sketches/fingers.webm']);
     fingers.hide(); // by default video shows up in separate dom
 
-    // myShader = loadShader("/vc/docs/sketches/hardware/shader.vert", "/vc/docs/sketches/hardware/textureLUMA.frag")
+    myShader = loadShader("/vc/docs/sketches/hardware/shader.vert", "/vc/docs/sketches/hardware/textureLUMA.frag")
 }
 
 function setup() {
@@ -21,10 +21,14 @@ function setup() {
     H = 500;
     createCanvas(W, H, WEBGL);
     textureMode(NORMAL);
-    // shader(myShader);
+    shader(myShader);
+
+    myShader.setUniform("texture", fingers)
+
 
     slider = createSlider(0, 3, 40);
     slider.position(10, 10);
+
 
     fingers.loop();
     // noLoop();
@@ -33,8 +37,7 @@ function setup() {
 function draw() {
     let posSlider = slider.value();
 
-    // myShader.setUniform("texture", fingers)
-    // myShader.setUniform("weights", weights[posSlider])
+    myShader.setUniform("weights", weights[posSlider])
 
     beginShape();
     fill(150);

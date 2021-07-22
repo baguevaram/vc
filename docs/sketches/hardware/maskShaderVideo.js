@@ -21,7 +21,9 @@ let myShader;
 function preload() {
     fingers = createVideo(['/vc/docs/sketches/fingers.mov', '/vc/docs/sketches/fingers.webm']);
     fingers.hide(); // by default video shows up in separate dom
+
     myShader = loadShader("/vc/docs/sketches/hardware/shader.vert", "/vc/docs/sketches/hardware/mask1.frag")
+
 }
 
 function setup() {
@@ -30,8 +32,8 @@ function setup() {
     createCanvas(W, H, WEBGL);
     textureMode(NORMAL);
     shader(myShader);
-    myShader.setUniform("offset", [1 / img.width, 1 / img.height])
-
+    myShader.setUniform("texture", fingers)
+    myShader.setUniform("offset", [1 / fingers.width, 1 / fingers.height])
 
     slider = createSlider(0, 3, 40);
     slider.position(10, 10);
@@ -41,11 +43,11 @@ function setup() {
 function draw() {
     let posSlider = slider.value();
 
-    myShader.setUniform("texture", fingers)
 
     myShader.setUniform("mask", masks[posSlider])
 
     beginShape();
+    fill(150);
     vertex(-W / 2, -H / 2, 0, 0, 0);
     vertex(W / 2, -H / 2, 0, 1, 0);
     vertex(W / 2, H / 2, 0, 1, 1);

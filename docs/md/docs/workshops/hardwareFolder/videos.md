@@ -11,3 +11,8 @@
 ## ASCII ART
 
 > :P5 sketch=/docs/sketches/hardware/ASCIIARTVideo.js, width=500, height=500
+
+## Mosaico
+
+> :P5 sketch=/docs/sketches/hardware/MosaicoVideo.js, width=500, height=500
+

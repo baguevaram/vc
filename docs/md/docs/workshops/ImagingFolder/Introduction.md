@@ -20,6 +20,7 @@ Inicialmente trabajamos con las imágenes dado que su manipulación es más senc
 
 ## Background   
 
+## MODIFICACIONES SIMPLES 
 
 Inicialmente en el grupo decidimos investigar un conjunto de problemas los cuales llamamos modificaciones simples en los cuales encontramos Imagen Invertida, Imagen Negativa y la escala de grises con 3 métodos
 
@@ -99,7 +100,7 @@ Finalmente el último método implementado fue el del brillo, este se basa en pr
 > ```
 
 
-## CODIGO ASCII
+## ASCII ART
 
 La representación con código ASCII se puede usar para mostrar las imágenes en computadores que no pueden representarlas, primero se debe analizar la imagen por bloques, teniendo en cuenta los detalles del bloque como por ejemplo su densidad, posterior a esto se define su nivel de brillo, con el fin de asignar el ASCII correspondiente que permita hacer una representación correcta de la imagen. 
 

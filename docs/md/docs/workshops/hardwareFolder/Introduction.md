@@ -93,7 +93,7 @@ El último enfoque usado para el mosaico fue hacer el cálculo de la distancia d
 > :Formula align=center
 >
 > dis=\sqrt{{(pixel.R-rgb.R)^2}+{(pixel.G-rgb.G)^2}+{(pixel.B-rgb.B)^2}}
-* Buscamos la menor distancia entre la sección y el color representativo de una imagen
+* Buscamos la menor distancia entre el color del pixel representatico de la sección y el color representativo de una imagen
 * Reemplazar la sección por la imagen
 
 ## BIBLIOGRAFIA

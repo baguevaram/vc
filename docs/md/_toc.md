@@ -21,10 +21,9 @@
 > > > [Problem Statement and background](/docs/workshops/hardwareFolder/Introduction)
 > > > [Texturas](/docs/workshops/hardwareFolder/textures)
 > > > [Shaders](/docs/workshops/hardwareFolder/shaders)
-> > > [ASCII ART](/docs/workshops/hardwareFolder/ASCIIART)
 > > > [Videos](/docs/workshops/hardwareFolder/videos)
+> > > [ASCII ART](/docs/workshops/hardwareFolder/ASCIIART)
 > > > [Mosaico](/docs/workshops/hardwareFolder/mosaico)
-> > > [Conclusions](/docs/workshops/hardwareFolder/Conclusions)
 >
 > > :Collapse label=Rendering
 > > 

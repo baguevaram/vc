@@ -202,6 +202,8 @@ void main() {
 
 ## Intento 3: Cercanía entre colores
 
+### 32 Texturas
+
 > :Tabs
 > > :Tab title=Implementación
 > > >
@@ -513,7 +515,18 @@ void main() {
 }
 > > ```
 
+### 16 Texturas
+
+> :Tabs
+> > :Tab title=Implementación
+> > >
+> > > :P5 sketch=/docs/sketches/hardware/Mosaico4.js, width=500, height=500
+>
+
+
 ## Resultado final (Video)
+
+### 32 Texturas
 
 > :Tabs
 > > :Tab title=Implementación
@@ -829,5 +842,12 @@ void main() {
 }
 > > ```
 
+### 16 Texturas
+
+> :Tabs
+> > :Tab title=Implementación
+> > >
+> > > :P5 sketch=/docs/sketches/hardware/MosaicoVideo2.js, width=500, height=500
+>
 
 > :ToCPrevNext

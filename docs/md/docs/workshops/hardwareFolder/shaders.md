@@ -1,5 +1,7 @@
 # Shaders
 
+En la computación gráfica se usan los shaders como ya hemos visto en el curso para aplicar el sombreado a objetos en 3D, entendido como el debido nivel de luz, oscuridad y color, todo esto para mejorar la representación de un objeto 3D en un computador. La mayoría de estos corren en la GPU debido a la facilidad que tienen estas para procesar la geometría con mayor eficiencia.
+
 ## Shaders Propios
 
 ### Textura
@@ -164,6 +166,24 @@ void main() {
 
 ### LUMA
 
+ Se usó el método de Luma, con el objetivo de obtener una imagen convertida a su equivalente en escala de grises, esto se logró realizando el cálculo del promedio, pero lo realiza de forma ponderada para corregir la percepción con la que es percibida por los seres humanos.
+> :Formula align=center
+>
+> prom=\cfrac{R \* 0.2627+G \* 0.678+B \* 0.0593}{3}
+>
+> ```
+> R=prom
+> ```
+>
+> ```
+> G=prom
+> ```
+>
+> ```
+> B=prom
+> ```
+
+
 > :Tabs
 > > :Tab title=Luma
 > > >
@@ -224,6 +244,9 @@ void main() {
 }
 > > ```
 ### LUMA (Video)
+
+Usando los fragment shader previamente creados podemos usarlo para que estos filtros sean visibles en los videos
+
 > :Tabs
 > > :Tab title=Implementación
 > > >
@@ -290,6 +313,15 @@ void main() {
 
 
 ## Mascaras de convolución
+
+En este ejercicio veremos la utilidad de aplicar convoluciones por medio de distintos kernels, estos se usan para alterar las imágenes y obtener alguna información extra o solo cambiar su apariencia. Para realizar estos cambios usaremos 3 kernels los cuales son matrices que multiplicarán los píxeles propios de la imagen. 
+En hardware podemos aprovechar el poder de cálculo de las gpu para aplicar la convolución, para estos cálculos usamos los kernels como vectores y accedemos a los texeles propios de cada imagen con un fragment shader.
+En cada punto del slider podemos ver el resultado de aplicar 4 kernels, de izquierda a derecha son:
+
+* Identidad
+* Detección de bordes
+* Filtro Blur
+* Matriz de Sharpen
 
 > :Tabs
 > > :Tab title=Convolución
@@ -380,6 +412,8 @@ void main() {
 > > ```
 
 ## Mascaras de convolución (Video)
+
+Usando los fragment shader previamente creados podemos usarlo para que estos filtros sean visibles en los videos.
 
 > :Tabs
 > > :Tab title=Implementación

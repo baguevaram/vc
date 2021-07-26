@@ -2,6 +2,16 @@
 
 ## Intento 1: Con brillo: (0.299*R + 0.587*G + 0.114*B)
 
+El primer enfoque usado para el mosaico es dividir en bloques la textura para calcular la imagen asociada a un bloque calculando un índice.
+* Cargar las imágenes que se van a usar.
+* Ordenar las imágenes por brillos y se divide el rango de brillos en 6 partes, ya que son 6 imágenes.
+* Calculamos el índice a partir del píxel representativo del bloque seleccionado, usando cada componente RGB, calculando su brillo.
+> :Formula align=center
+>
+> calc=(R \* 0.299+G \* 0.587+B \* 0.114)
+* Buscamos el índice a partir del brillo calculado.
+* Reemplazar la bloque por la imagen.
+
 > :Tabs
 > > :Tab title=Implementación
 > > >
@@ -102,6 +112,16 @@ void main() {
 
 ## Intento 2: Cercania al brillo de cada imagen 
 
+El segundo enfoque usado para el mosaico es dividir en bloques la textura para calcular la imagen asociada a un bloque calculando un brillo.
+* Cargar las imágenes que se van a usar.
+* Ordenar las imágenes por brillos y se divide el rango de brillos en 6 partes con constantes que fueron ajustadas por medio de pruebas para un mejor resultado.
+* Calculamos el brillo a partir del píxel representativo del bloque seleccionado, usando cada componente RGB.
+> :Formula align=center
+>
+> calc=(R \* 0.299+G \* 0.587+B \* 0.114)
+* Buscamos el brillo a partir del brillo calculado.
+* Reemplazar la bloque por la imagen.
+
 > :Tabs
 > > :Tab title=Implementación
 > > >
@@ -201,6 +221,16 @@ void main() {
 > > ```
 
 ## Intento 3: Cercanía entre colores
+
+El último enfoque usado para el mosaico es dividir en bloques la textura para calcular la imagen asociada a un bloque calculando la menor distancia entre brillos.
+* Cargar las imágenes que se van a usar.
+* Ordenar las imágenes por brillos, le asociamos a cada imagen un vector de brillo.
+* Calculamos la distancia entre el pixel representativo y los diferentes vectores de brillo, estos puntos tienen las 3 componentes RGB.
+> :Formula align=center
+>
+> dis=\sqrt{{(pixel.R-rgb.R)^2}+{(pixel.G-rgb.G)^2}+{(pixel.B-rgb.B)^2}}
+* La distancia será comparada con un límite definido para saber que vector es más cercano al pixel representativo.
+* Reemplazar la sección por la imagen.
 
 ### 32 Texturas
 
@@ -525,6 +555,8 @@ void main() {
 
 
 ## Resultado final (Video)
+
+Usando los fragment shader previamente creados podemos usarlo para que estos filtros sean visibles en los videos
 
 ### 32 Texturas
 

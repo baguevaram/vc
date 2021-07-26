@@ -1,5 +1,16 @@
 # ASCII ART
 
+1. A cada carácter ASCII se le puede asignar un aproximado de densidad en escala de grises; 
+el signo @ obviamente es visualmente más oscuro que el signo +, por ejemplo.
+
+2. Se divide la imagen en bloques, estos son sacados a partir de una sección de la textura. Cada bloque se convierte en uno de los 
+caracteres ASCII.
+
+3. En cada bloque se toma un píxel representativo ubicado en la esquina superior izquierda, ya que la coherencia espacial nos dice que los píxeles en la misma región del bloque no serán muy diferentes.
+   
+4. En cada bloque se selecciona un carácter cuya densidad en escala de grises previamente calculado en el paso 1 es 
+una buena aproximación al pixel representativo en el bloque del paso 3.
+
 > :Tabs
 > > :Tab title=Implementación
 > > >
@@ -143,6 +154,8 @@ void main() {
 
 # Color
 
+Para la parte de los colores solo calculamos el promedio rgb del pixel representativo para calcular el color de la letra.
+
 > :Tabs
 > > :Tab title=Implementación
 > > >
@@ -283,6 +296,8 @@ void main() {
 > > ```
 
 # ASCII ART (Video)
+
+Usando los fragment shader previamente creados podemos usarlo para que estos filtros sean visibles en los videos.
 
 > :Tabs
 > > :Tab title=Implementación

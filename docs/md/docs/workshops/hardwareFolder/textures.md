@@ -2,6 +2,8 @@
 
 ## Textura Simple
 
+Son una parte primordial de la representación de las imágenes 3D, debido a que nos permiten aplicar una imagen que se encuentra en 2 dimensiones a un objeto tridimensional, normalmente realizando un mapeo de la imagen que deseamos proyectar para posteriormente envolver el objeto al cual queremos aplicar las texturas.
+
 > :Tabs
 > > :Tab title=Implementación
 > > >

@@ -13,10 +13,6 @@ El primer enfoque usado para el mosaico es dividir en bloques la textura para ca
 * Reemplazar la bloque por la imagen.
 
 > :Tabs
-> > :Tab title=Original
-> > >
-> > > :P5 sketch=/docs/sketches/hardware/simpleTexture.js, width=500, height=500
->
 > > :Tab title=Implementación
 > > >
 > > > :P5 sketch=/docs/sketches/hardware/Mosaico.js, width=500, height=500
@@ -127,10 +123,6 @@ El segundo enfoque usado para el mosaico es dividir en bloques la textura para c
 * Reemplazar la bloque por la imagen.
 
 > :Tabs
-> > :Tab title=Original
-> > >
-> > > :P5 sketch=/docs/sketches/hardware/simpleTexture.js, width=500, height=500
->
 > > :Tab title=Implementación
 > > >
 > > > :P5 sketch=/docs/sketches/hardware/Mosaico2.js, width=500, height=500
@@ -243,10 +235,6 @@ El último enfoque usado para el mosaico es dividir en bloques la textura para c
 ### 32 Texturas
 
 > :Tabs
-> > :Tab title=Original
-> > >
-> > > :P5 sketch=/docs/sketches/hardware/simpleTexture.js, width=500, height=500
->
 > > :Tab title=Implementación
 > > >
 > > > :P5 sketch=/docs/sketches/hardware/Mosaico3.js, width=500, height=500
@@ -563,10 +551,6 @@ void main() {
 ### 16 Texturas
 
 > :Tabs
-> > :Tab title=Original
-> > >
-> > > :P5 sketch=/docs/sketches/hardware/simpleTexture.js, width=500, height=500
->
 > > :Tab title=Implementación
 > > >
 > > > :P5 sketch=/docs/sketches/hardware/Mosaico4.js, width=500, height=500
@@ -763,10 +747,6 @@ void main() {
 ### 32 Texturas
 
 > :Tabs
-> > :Tab title=Original
-> > >
-> > > :P5 sketch=/docs/sketches/hardware/simpleTexture.js, width=500, height=500
->
 > > :Tab title=Implementación
 > > >
 > > > :P5 sketch=/docs/sketches/hardware/MosaicoVideo.js, width=500, height=500

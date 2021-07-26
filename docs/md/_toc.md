@@ -23,7 +23,7 @@
 > > > [Shaders](/docs/workshops/hardwareFolder/shaders)
 > > > [ASCII ART](/docs/workshops/hardwareFolder/ASCIIART)
 > > > [Mosaico](/docs/workshops/hardwareFolder/mosaico)
-> > > [Conclusiones](/docs/workshops/hardwareFolder/conclusiones)
+> > > [Conclusiones](/docs/workshops/hardwareFolder/Conclusiones)
 >
 > > :Collapse label=Rendering
 > > 

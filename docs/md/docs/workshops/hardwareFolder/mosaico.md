@@ -545,9 +545,6 @@ void main() {
 }
 > > ```
 
-## Resultado final (Video)
-
-
 ### 16 Texturas
 
 > :Tabs
@@ -734,7 +731,7 @@ void main() {
 }
 > > ```
 
-
+## Resultado final (Video)
 
 ### 16 Texturas
 

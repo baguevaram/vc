@@ -547,10 +547,6 @@ void main() {
 
 ## Resultado final (Video)
 
-Usando los fragment shader previamente creados podemos usarlo para que estos filtros sean visibles en los videos, para los estos se implemento las texturas con 16 y 32 imagenes diferentes, en el primer paso nos apoyamos de una herramienta online (https://pinetools.com/es/obtener-colores-imagen) la cual nos ayudo a conocer los colores representativos necesarios para el mosaico, posterior a esto necesitabamos hallar la manera de representar esos resultados, por lo que con los colores encontrados en la siguiente pagina, buscamos en un banco de imagenes donde las imagenes se podian buscar por tags, lo cual fue usado para conseguir varias imagenes que tuvieran relacion con la imagen principal.
-
-> :P5 sketch=/docs/sketches/hardware/1.js
-
 
 ### 16 Texturas
 

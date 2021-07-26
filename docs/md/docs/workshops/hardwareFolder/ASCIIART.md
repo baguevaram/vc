@@ -12,6 +12,10 @@ caracteres ASCII.
 una buena aproximación al pixel representativo en el bloque del paso 3.
 
 > :Tabs
+> > :Tab title=Original
+> > >
+> > > :P5 sketch=/docs/sketches/hardware/simpleTexture.js, width=500, height=500
+>
 > > :Tab title=Implementación
 > > >
 > > > :P5 sketch=/docs/sketches/hardware/ASCIIART.js, width=500, height=500
@@ -157,6 +161,10 @@ void main() {
 Para la parte de los colores solo calculamos el promedio rgb del pixel representativo para calcular el color de la letra.
 
 > :Tabs
+> > :Tab title=Original
+> > >
+> > > :P5 sketch=/docs/sketches/hardware/simpleTexture.js, width=500, height=500
+>
 > > :Tab title=Implementación
 > > >
 > > > :P5 sketch=/docs/sketches/hardware/ASCIIARTColor.js, width=500, height=500

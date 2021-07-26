@@ -13,6 +13,10 @@ El primer enfoque usado para el mosaico es dividir en bloques la textura para ca
 * Reemplazar la bloque por la imagen.
 
 > :Tabs
+> > :Tab title=Original
+> > >
+> > > :P5 sketch=/docs/sketches/hardware/simpleTexture.js, width=500, height=500
+>
 > > :Tab title=Implementación
 > > >
 > > > :P5 sketch=/docs/sketches/hardware/Mosaico.js, width=500, height=500
@@ -123,6 +127,10 @@ El segundo enfoque usado para el mosaico es dividir en bloques la textura para c
 * Reemplazar la bloque por la imagen.
 
 > :Tabs
+> > :Tab title=Original
+> > >
+> > > :P5 sketch=/docs/sketches/hardware/simpleTexture.js, width=500, height=500
+>
 > > :Tab title=Implementación
 > > >
 > > > :P5 sketch=/docs/sketches/hardware/Mosaico2.js, width=500, height=500
@@ -235,6 +243,10 @@ El último enfoque usado para el mosaico es dividir en bloques la textura para c
 ### 32 Texturas
 
 > :Tabs
+> > :Tab title=Original
+> > >
+> > > :P5 sketch=/docs/sketches/hardware/simpleTexture.js, width=500, height=500
+>
 > > :Tab title=Implementación
 > > >
 > > > :P5 sketch=/docs/sketches/hardware/Mosaico3.js, width=500, height=500
@@ -551,10 +563,193 @@ void main() {
 ### 16 Texturas
 
 > :Tabs
+> > :Tab title=Original
+> > >
+> > > :P5 sketch=/docs/sketches/hardware/simpleTexture.js, width=500, height=500
+>
 > > :Tab title=Implementación
 > > >
 > > > :P5 sketch=/docs/sketches/hardware/Mosaico4.js, width=500, height=500
 >
+> > :Tab title=Código
+> >
+> > ```js
+let W;
+let H;
+let slider;
+let myShader;
+function preload() {
+    img = loadImage('/vc/docs/sketches/hardware/test.jpeg');
+    alpha0 = loadImage('/vc/docs/sketches/hardware/ImagenesMosaico/Intento3/img0.jpg')
+    alpha1 = loadImage('/vc/docs/sketches/hardware/ImagenesMosaico/Intento3/img1.jpg')
+    alpha2 = loadImage('/vc/docs/sketches/hardware/ImagenesMosaico/Intento3/img2.jpg')
+    alpha3 = loadImage('/vc/docs/sketches/hardware/ImagenesMosaico/Intento3/img3.jpg')
+    alpha4 = loadImage('/vc/docs/sketches/hardware/ImagenesMosaico/Intento3/img4.jpg')
+    alpha5 = loadImage('/vc/docs/sketches/hardware/ImagenesMosaico/Intento3/img5.jpg')
+    alpha6 = loadImage('/vc/docs/sketches/hardware/ImagenesMosaico/Intento3/img6.jpg')
+    alpha7 = loadImage('/vc/docs/sketches/hardware/ImagenesMosaico/Intento3/img7.jpg')
+    alpha8 = loadImage('/vc/docs/sketches/hardware/ImagenesMosaico/Intento3/img8.jpg')
+    alpha9 = loadImage('/vc/docs/sketches/hardware/ImagenesMosaico/Intento3/img9.jpg')
+    alpha10 = loadImage('/vc/docs/sketches/hardware/ImagenesMosaico/Intento3/img10.jpg')
+    alpha11 = loadImage('/vc/docs/sketches/hardware/ImagenesMosaico/Intento3/img11.jpg')
+    alpha12 = loadImage('/vc/docs/sketches/hardware/ImagenesMosaico/Intento3/img12.jpg')
+    alpha16 = loadImage('/vc/docs/sketches/hardware/ImagenesMosaico/Intento3/img16.jpg')
+    alpha18 = loadImage('/vc/docs/sketches/hardware/ImagenesMosaico/Intento3/img18.jpg')
+    myShader = loadShader("/vc/docs/sketches/hardware/shader.vert", "/vc/docs/sketches/hardware/MosaicoShader4.frag")
+}
+function setup() {
+    W = 500;
+    H = 500;
+    createCanvas(W, H, WEBGL);
+    textureMode(NORMAL);
+    noStroke();
+    shader(myShader);
+    myShader.setUniform("texture", img);
+    myShader.setUniform("alpha0", alpha0);
+    myShader.setUniform("alpha1", alpha1);
+    myShader.setUniform("alpha2", alpha2);
+    myShader.setUniform("alpha3", alpha3);
+    myShader.setUniform("alpha4", alpha4);
+    myShader.setUniform("alpha5", alpha5);
+    myShader.setUniform("alpha6", alpha6);
+    myShader.setUniform("alpha7", alpha7);
+    myShader.setUniform("alpha8", alpha8);
+    myShader.setUniform("alpha9", alpha9);
+    myShader.setUniform("alpha10", alpha10);
+    myShader.setUniform("alpha11", alpha11);
+    myShader.setUniform("alpha12", alpha12);
+    myShader.setUniform("alpha16", alpha16);
+    myShader.setUniform("alpha18", alpha18);
+    slider = createSlider(2, 16, 40);
+    slider.position(10, 10);
+}
+function draw() {
+    let posSlider = slider.value();
+    myShader.setUniform("resolution", parseInt(500 / posSlider));
+    beginShape();
+    vertex(-W / 2, -H / 2, 0, 0, 0);
+    vertex(W / 2, -H / 2, 0, 1, 0);
+    vertex(W / 2, H / 2, 0, 1, 1);
+    vertex(-W / 2, H / 2, 0, 0, 1);
+    endShape();
+}
+> > ```
+>
+> > :Tab title=Fragment Shader
+> >
+> > ```glsl
+precision mediump float;
+uniform sampler2D texture;
+uniform sampler2D alpha0;
+uniform sampler2D alpha1;
+uniform sampler2D alpha2;
+uniform sampler2D alpha3;
+uniform sampler2D alpha4;
+uniform sampler2D alpha5;
+uniform sampler2D alpha6;
+uniform sampler2D alpha7;
+uniform sampler2D alpha8;
+uniform sampler2D alpha9;
+uniform sampler2D alpha10;
+uniform sampler2D alpha11;
+uniform sampler2D alpha12;
+uniform sampler2D alpha16;
+uniform sampler2D alpha18;
+uniform float resolution;
+// interpolated color (same name as in vertex shader)
+varying vec4 vVertexColor;
+// interpolated texcoord (same name as in vertex shader)
+varying vec2 vTexCoord;
+float distancia(in vec4 pixel, in vec3 rgb){
+    return sqrt(pow(pixel.r-rgb.r, 2.0)+pow(pixel.g-rgb.g, 2.0)+pow(pixel.b-rgb.b, 2.0));
+}
+void main() {
+    vec2 symbolCoord = vTexCoord * resolution;
+    vec2 imageCoord = floor(symbolCoord);
+    symbolCoord = symbolCoord - imageCoord;
+    imageCoord = imageCoord * vec2(1.0) / vec2(resolution);
+    // obtener nivel de gris
+    vec4 pixelColor = texture2D(texture, imageCoord)*255.0;
+    float minDis = 1000.0;
+    float dis = distancia(pixelColor, vec3 (35, 31, 32));
+    gl_FragColor = texture2D(alpha2, symbolCoord);
+    if (dis < minDis){
+        minDis = dis;
+        gl_FragColor = texture2D(alpha0, symbolCoord);
+    }
+    dis = distancia(pixelColor, vec3 (85, 59, 40));
+    if (dis < minDis){
+        minDis = dis;
+        gl_FragColor = texture2D(alpha1, symbolCoord);
+    }
+    dis = distancia(pixelColor, vec3 (148, 143, 144));
+    if (dis < minDis){
+        minDis = dis;
+        gl_FragColor = texture2D(alpha2, symbolCoord);
+    }
+    dis = distancia(pixelColor, vec3 (194, 159, 156));
+    if (dis < minDis){
+        minDis = dis;
+        gl_FragColor = texture2D(alpha3, symbolCoord);
+    }
+    dis = distancia(pixelColor, vec3 (160, 134, 116));
+    if (dis < minDis){
+        minDis = dis;
+        gl_FragColor = texture2D(alpha4, symbolCoord);
+    }
+    dis = distancia(pixelColor, vec3 (137, 129, 122));
+    if (dis < minDis){
+        minDis = dis;
+        gl_FragColor = texture2D(alpha5, symbolCoord);
+    }
+    dis = distancia(pixelColor, vec3 (199, 199, 193));
+    if (dis < minDis){
+        minDis = dis;
+        gl_FragColor = texture2D(alpha6, symbolCoord);
+    }
+    dis = distancia(pixelColor, vec3 (169, 165, 159));
+    if (dis < minDis){
+        minDis = dis;
+        gl_FragColor = texture2D(alpha7, symbolCoord);
+    }
+    dis = distancia(pixelColor, vec3 (88, 77, 70));
+    if (dis < minDis){
+        minDis = dis;
+        gl_FragColor = texture2D(alpha8, symbolCoord);
+    }
+    dis = distancia(pixelColor, vec3 (137, 105, 85));
+    if (dis < minDis){
+        minDis = dis;
+        gl_FragColor = texture2D(alpha9, symbolCoord);
+    }
+    dis = distancia(pixelColor, vec3 (56, 56, 54));
+    if (dis < minDis){
+        minDis = dis;
+        gl_FragColor = texture2D(alpha10, symbolCoord);
+    }
+    dis = distancia(pixelColor, vec3 (176, 176, 182));
+    if (dis < minDis){
+        minDis = dis;
+        gl_FragColor = texture2D(alpha11, symbolCoord);
+    }
+    dis = distancia(pixelColor, vec3 (112, 111, 112));
+    if (dis < minDis){
+        minDis = dis;
+        gl_FragColor = texture2D(alpha12, symbolCoord);
+    }
+    dis = distancia(pixelColor, vec3 (188, 188, 172));
+    if (dis < minDis){
+        minDis = dis;
+        gl_FragColor = texture2D(alpha16, symbolCoord);
+    }
+    dis = distancia(pixelColor, vec3 (118, 108, 96));
+    if (dis < minDis){
+        minDis = dis;
+        gl_FragColor = texture2D(alpha18, symbolCoord);
+    }
+}
+> > ```
+
 
 
 ### 16 Texturas
@@ -565,11 +760,13 @@ void main() {
 > > > :P5 sketch=/docs/sketches/hardware/MosaicoVideo2.js, width=500, height=500
 >
 
-> :ToCPrevNext
-
 ### 32 Texturas
 
 > :Tabs
+> > :Tab title=Original
+> > >
+> > > :P5 sketch=/docs/sketches/hardware/simpleTexture.js, width=500, height=500
+>
 > > :Tab title=Implementación
 > > >
 > > > :P5 sketch=/docs/sketches/hardware/MosaicoVideo.js, width=500, height=500
@@ -883,3 +1080,4 @@ void main() {
 }
 > > ```
 
+> :ToCPrevNext
